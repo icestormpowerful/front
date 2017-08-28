@@ -1,0 +1,62 @@
+<div class="content">
+	<div class="inner-content">
+		<div class="inner-container">
+			<div class="row">
+				<div class="col-md-3 pull-left">
+					<div class="sidebar-left">
+						<ul>
+							<li><a href="#!/master/profile">システム設定</a></li>
+							<li><a href="#!/master/employeeedit">スタッフ登録</a></li>
+							<li class="active"><a href="#!/master/loginhistory">ログイン履歴</a></li>
+							<li><a href="#!/master/edithistory">編集履歴</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9 pull-right">
+					<div class="site-content">
+						<div class="section-news">
+							<label style="font-size:20px">ログイン履歴</label>
+						</div>
+						<div class="row" style="margin-bottom:20px;">
+							<div class="col-sm-1"></div>
+							<div class="col-sm-10">
+								<form class="searchPart">
+			                        <!-- <i class="glyphicon glyphicon-search"></i> -->
+			                        <button type="button" class="submit-blue-search" style="margin-left:10px;" ng-click="submitClear()">クリア</button>  
+			                        <button type="button" class="submit-blue-search" ng-click="submitSearch()">検索</button>  
+			                        <input type="text" name="search" placeholder="" ng-model="searchtext">      
+			                    </form>
+							</div>
+						</div>
+						<div class="section-5 col-md-12">
+						<table>
+							<thead>
+								<tr>
+									<th ng-click="clickheader(1)">ログイン日時<span class={{tableheaderclassname[headertime]}}></span></th>
+									<th ng-click="clickheader(2)">ログインID<span class={{tableheaderclassname[headerid]}}></span></th>
+									<th ng-click="clickheader(3)">名前<span class={{tableheaderclassname[headername]}}></span></th>
+									<th ng-click="clickheader(4)">IPアドレス<span class={{tableheaderclassname[headerip]}}></span></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class={{tableitem.classname}} ng-repeat="tableitem in tablearray">
+									<td>{{tableitem.time}}</td>
+									<td>{{tableitem.id}}</td>
+									<td>{{tableitem.name}}</td>
+									<td>{{tableitem.ip}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+						<div class="pagination">
+							<ul uib-pagination total-items="totaltableitem" max-size="5" ng-model="paginationnumber" previous-text="前へ" next-text="次へ" first-text="最初" last-text="最後" direction-links="false" boundary-links="true" items-per-page="tablepageitemcount" class="pagination-sm" boundary-link-numbers="true" rotate="true" ng-change="paginationchange()"></ul>
+					</div>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

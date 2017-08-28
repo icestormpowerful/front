@@ -1,0 +1,239 @@
+<div class="container">
+
+            <div class="row">
+                <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+                <img src="./assets/img/top_bar_2.png" />
+            </div>
+            <div class="row">
+                <h1><strong>自動マッチング</strong></h1>
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>プロフィールの設定に対して、マッチングしている助成金・補助金が表示されています。直接、士業に依頼することも可能です。</b></p>
+            </div>
+            <div class="row">
+                <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #dddddd;">
+                    <li class="tab-style-grey">
+                        <a href="#tab1" data-toggle="tab"> <b> <u>施策詳細</u></b></a>
+                    </li>                     
+                    <li class="tab-style-grey active">
+                        <a href="#tab2" data-toggle="tab"> <b> <u>士業詳細</u></b></a>
+                    </li>                     
+                </ul>
+            </div>             
+            <div class="row" style="margin-top:20px">
+                <div class="col-sm-10" style="padding-right: 50px;">
+                    <div class="row well">
+                        <div class="col-sm-4"> 
+                            <div class="text-center">
+                                <img src={{displayimageurl+F3DaehangjaData.image}} style="width: 185px;height: 145px" class="img-thumbnail">
+                                <button type="button" class="btn btn-primary" style="width: 120px;margin-top: 10px">フォロー</button>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-8" style="padding-left: 20px">
+                            <div>
+                                <h4 class="text-primary"><b>{{F3DaehangjaData.displayname}}</b></h4>
+                                <p>ユーザーID：{{F3DaehangjaData.user_id}}</p>
+                                <p>&nbsp;</p>
+                                <p>実績　　　　　：　{{F3DaehangjaData.result}}</p>
+                                <p>評価　　　　　：　{{F3DaehangjaData.evaluate}}<b style="color: #d9d904">★★★★★★</b></p>
+                                <p>ビデオチャット：　対応可能</p>
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #dddddd;"> 
+                            <li class="tab-style-grey active">
+                                <a href="#tab1" data-toggle="tab"> <b> <u>プロフィール</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a href="#tab2" data-toggle="tab"> <b> <u>ブログ</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" > <b> <u>評価・実績</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="onClickF5Tab()"> <b> <u>対応可能業務</u></b></a>
+                            </li>
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="onClickF6Tab()"> <b> <u>対応可能施策</u></b></a>
+                            </li>                             
+                        </ul>
+                    </div>                     
+                    <div class="row div-style-blue">
+                        <h3 class="text-primary"> <b>AA自己紹介</b></h3>
+                        <p>{{F3DaehangjaData.self_intro}}</p>
+                    </div>                     
+                    <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                        <div class="col-sm-12">
+                            <h3 class="h1-left-border"> <b>依頼者からの評価</b></h3>
+                        </div>
+                    </div>                     
+                    <div class="row">
+                        <div class="col-sm-12 div-style-white" ng-repeat="daehangjaFeedbackItem in F3DaehangjaFeedbackList">
+                            <div class="row" >
+                                <div class="col-sm-2" style="margin-top: 20px">
+                                    <img src={{displayimageurl+daehangjaFeedbackItem.image}} style="width: 100px" class="img-thumbnail">
+                                </div>
+                                <div class="col-sm-10">
+                                    <h3 class="text-primary"><b>依頼内容 &nbsp; &nbsp;&nbsp;{{daehangjaFeedbackItem.eval_total}}</b>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i>
+                                        <i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i></h3>
+                                    <div class="row">
+                                        <div class="col-sm-8"> 
+                                            <p style="font-size: 14px">{{daehangjaFeedbackItem.eval_message}}</p>
+                                        </div>
+                                        <div style="padding-right: 20px" class="col-sm-4"> 
+                                            <div class="text-center div-style-blue1" style="margin-top: 0px;margin-bottom: 0px">
+                                                <p><b>品質　　</b><b style="color: #d9d904"><b>&nbsp;</b>{{daehangjaFeedbackItem.eval_quality}}★★★★★</b></p>
+                                                <p><b>納期　　</b><b style="color: #d9d904">{{daehangjaFeedbackItem.eval_delivery}}★★★★★</b></p>
+                                                <p><b>対応　　</b><b style="color: #d9d904">{{daehangjaFeedbackItem.eval_conf}}★★★★★</b></p>
+                                                <p><b>コスト　</b><b style="color: #d9d904">{{daehangjaFeedbackItem.eval_price}}★★★★★</b></p>
+                                                <p><b>能力　　</b><b style="color: #d9d904">{{daehangjaFeedbackItem.eval_ability}}★★★★★</b></p>
+                                            </div>                                             
+                                        </div>
+                                    </div>                                     
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="text-primary"><b>依頼者：{{daehangjaFeedbackItem.user_name}}</b></h6>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <h6>{{daehangjaFeedbackItem.created_date}}</h6>
+                                </div>
+                            </div>                             
+                        </div>
+                        <!--
+                        <table class="table">
+                            <tbody>
+                                <tr> 
+                                    <td class="div-style-white">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px" class="img-thumbnail">
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <h3 class="text-primary"><b>依頼内容 &nbsp; &nbsp;&nbsp;</b><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i><i class="fa fa-star" style="font-size: 14px;color: #d9d904"></i></h3>
+                                                <div class="row">
+                                                    <div class="col-sm-8"> 
+                                                        <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                                                    </div>
+                                                    <div style="padding-right: 20px" class="col-sm-4"> 
+                                                        <div class="text-center div-style-blue1" style="margin-top: 0px;margin-bottom: 0px">
+                                                            <p><b>品質　　</b><b style="color: #d9d904"><b>&nbsp;</b>★★★★★</b></p>
+                                                            <p><b>納期　　</b><b style="color: #d9d904">★★★★★</b></p>
+                                                            <p><b>対応　　</b><b style="color: #d9d904">★★★★★</b></p>
+                                                            <p><b>コスト　</b><b style="color: #d9d904">★★★★★</b></p>
+                                                            <p><b>能力　　</b><b style="color: #d9d904">★★★★★</b></p>
+                                                        </div>                                                         
+                                                    </div>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <h6 class="text-primary"><b>依頼者：○○○</b></h6> 
+                                            </div>
+                                            <div class="col-sm-6 text-right">
+                                                <h6>○○年○○月○○日</h6> 
+                                            </div>
+                                        </div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        -->
+                        <div>
+                            <button type="button" class="btn-primary" style="float:right;margin-bottom:10px;" ng-click="F3GetFeedbackMore()">もっと見る</button>
+                        </div>
+                        <div>
+                            <table class="table" ng-repeat="subsidyitem in F3displaysubsidylist">
+                                <tbody>
+                                    <tr> 
+                                        <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                            <div class="row">
+                                                <div class="col-sm-2" style="margin-top: 20px " ng-click="F1view_subsidy_detail($index)">
+                                                    <img src={{displayimageurl+subsidyitem.image_id}} style="width: 100px">
+                                                </div>
+                                                <div class="col-sm-7" ng-click="F1view_subsidy_detail($index)">
+                                                    <h3 class="text-primary"><b>{{subsidyitem.name}}</b></h3>
+                                                    <h4 class="text-primary"><b>登録期間:</b>{{subsidyitem.register_insti_detail}}/<b>募集時期:</b>
+                                                        {{subsidyitem.subscript_duration}}
+                                                        <!--
+                                                        /<b>金額:</b>{{subsidyitem.acquire_budget}}
+                                                        -->
+                                                    </h4>
+                                                    <p style="font-size: 14px">{{subsidyitem.target}}</p>
+                                                </div>
+                                                <div class="col-sm-3" style="padding-right: 10px"> 
+                                                    <div class="div-style-yellow text-center" style="height:120px;line-height: 90px;">
+                                                        {{subsidyitem.count_agency}}人
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                                <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,0)">提案を検討</button>
+                                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,1)">興味あり</button>
+                                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,2)">非表示</button>
+                                            </div>
+                                        </td>                                         
+                                    </tr>                                     
+                                </tbody>
+                            </table>
+                            <div class="text-center">
+                                <div class="row">
+                                    <ul uib-pagination total-items="F3pagination.totalitem" max-size="3"
+                                        ng-model="F3pagination.current_page" previous-text="前へ" next-text="次へ"
+                                        first-text="最初" last-text="最後" direction-links="false"
+                                        boundary-links="true" items-per-page="F3pagination.itemperpage"
+                                        class="pagination-sm" boundary-link-numbers="true"
+                                        rotate="true" ng-change="F3paginationchange()"></ul>
+                                </div>
+                                <div class="row" style="padding-right: 10px">
+                                    <button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="">費用を設定する</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>                     
+                </div>
+                <div class="col-sm-2" style="padding-left: 5px;padding-right: 0px">
+                    <p style="font-size: 14px;"> <button type="button" class="btn btn-default sidebar-btn btn-green">
+                            <strong style="color:white;">依頼する</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad">
+                            <strong>ビデオチャット</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad">
+                            <strong>メッセージを送る</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="F12Init()">
+                            <strong>別の案件を提案</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad"
+                                                        ng-click="onClickF15()">
+                            <strong>違反申告する</strong>
+                        </button></p>
+                    <h4 class="h1-left-border text-primary"><strong>実績サマリー</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>評価　　　　　　　　{{F3DaehangjaData.eval1}}</b></h6>
+                        <h6><b>評価数　　　　　　　{{F3DaehangjaData.eval2}}</b></h6>
+                        <h6><b>良い評価率　　　　　{{F3DaehangjaData.eval_good}}</b></h6>
+                    </div>                     
+                    <h4 class="h1-left-border text-primary"><strong>認証状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>本人確認　　　　　　　OK</b></h6>
+                        <h6><b>機密保持　　　　　　　NG</b></h6>
+                        <h6><b>電話確認　　　　　　　OK</b></h6>
+                        <h6><b>士チェック　　　　　　OK</b></h6>
+                    </div>
+                    <h4 class="h1-left-border text-primary"><strong>仕事状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>取得時期　　　　　　　即時</b></h6>
+                        <h6><b>最終ログイン　　　○○日前</b></h6>
+                    </div>
+                </div>
+            </div>
+        </div>

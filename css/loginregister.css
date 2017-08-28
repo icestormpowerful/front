@@ -1,0 +1,63 @@
+#donate {
+    margin:0px;
+    float:left;
+}
+
+#donate label {
+    float:left;
+    margin-right:8px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    overflow:auto;
+       
+}
+
+#donate label span {
+    text-align:center;
+    padding:5px 0px;
+    display:block;
+}
+
+#donate label input {
+    position:absolute;
+    top:-20px;
+    display:none;
+}
+
+#donate input:checked + span {
+    background-color:#404040;
+    color:#F7F7F7;
+}
+
+#donate .graybutton {
+    background-color:#FFFFFF;
+    color:#333;
+}
+
+.submitbutton {
+    background-color: #EA5413;
+    color: white;
+}
+
+.submitbutton:hover{
+      color:#EEE;
+}
+
+.facebookbutton {
+    background-color: #416694;
+    color: white;
+}
+
+.facebookbutton:hover{
+      color:#EEE;
+}
+
+.googlebutton {
+    background-color: #C43E2C;
+    color: white;
+}
+
+.googlebutton:hover{
+      color:#EEE;
+}

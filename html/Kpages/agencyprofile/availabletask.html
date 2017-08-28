@@ -1,0 +1,431 @@
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>得意分野</b></h3>
+</div>
+<div class="row" style="margin-top: 40px;margin-bottom: 40px">
+    <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+    </div>
+    <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+    </div>
+    <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" placeholder="Placeholder text">
+        </div>
+    </div>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>カテゴリー</b></h3>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr><td rowspan={{gettablerowspan(4,downeddisplaycategorystring)}} class="text-muted div-style-blue2" style="font-size: 12px;width: 20%"></td></tr>
+            <tr ng-repeat="categoryitem in downeddisplaycategorystring" ng-if="!(($index) % 4)"> 
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-checked="bigcategoryexist($index,categoryitem.category)" 
+                    ng-click="bigcategorytoggle($index,categoryitem.category)" ng-show="downeddisplaycategorystring[$index]">
+                    {{categoryitem.category}}</input>
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-checked="bigcategoryexist($index+1,downeddisplaycategorystring[$index+1].category)" ng-click="bigcategorytoggle($index+1,downeddisplaycategorystring[$index+1].category)" 
+                    ng-show="downeddisplaycategorystring[$index+1]">
+                    {{downeddisplaycategorystring[$index+1].category}}</input>
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-checked="bigcategoryexist($index+2,downeddisplaycategorystring[$index+2].category)" ng-click="bigcategorytoggle($index+2,downeddisplaycategorystring[$index+2].category)"  ng-show="downeddisplaycategorystring[$index+2]">
+                    {{downeddisplaycategorystring[$index+2].category}}</input>
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-checked="bigcategoryexist($index+3,downeddisplaycategorystring[$index+3].category)" ng-click="bigcategorytoggle($index+3,downeddisplaycategorystring[$index+3].category)"  ng-show="downeddisplaycategorystring[$index+3]">
+                    {{downeddisplaycategorystring[$index+3].category}}</input>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>カテゴリー詳細</b></h3>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;" ng-repeat="subcategory in selectedcategorystring" ng-init="categoryparentindex = $index"> 
+        <tbody> 
+            <tr> 
+                <td rowspan={{gettablerowspan(4,downeddisplaycategorystring[subcategory.beforeindex].detail)}} class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>{{subcategory.category}}</b></td> 
+            </tr> 
+            <tr ng-repeat="subcategoryitem in downeddisplaycategorystring[subcategory.beforeindex].detail" ng-if="!(($index) % 4)">
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index]" 
+                    ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index])" 
+                    ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index])"> {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index]}}
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1]"
+                    ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1])" 
+                    ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1])">  {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1]}}
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2]"
+                    ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2])" 
+                    ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2])"> {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2]}}
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3]"
+                    ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3])" 
+                    ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3])"> {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3]}}
+                </td>
+            </tr>                     
+        </tbody>
+    </table>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>取得可能金額</b></h3>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>&nbsp;</b></td> 
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(0)">        100万円以下
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(1)">        100万〜500万円以下
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(2)">        500万〜1000円万以下
+                </td>
+            </tr>
+            <tr> 
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(3)">        1000万〜5000万以下
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(4)">        5000万〜1億円以下
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickavailablebalance(5)">        1億円以上
+                </td>
+            </tr>                                 
+        </tbody>
+    </table>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>業種</b></h3>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>&nbsp;</b></td> 
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(0)">       製造業
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(1)">        サービス業
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(2)">        卸売・小売業
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(3)">        情報通信業
+                </td>
+            </tr>
+            <tr> 
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(4)">        農林漁業
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(5)">        運輸業
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(6)">        建設業
+                </td>
+                <td style="font-size: 12px">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(7)">        不動産業
+                </td>
+            </tr> 
+            <tr> 
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(8)">        医療・福祉
+                </td>
+                <td style="font-size: 12px;width: 20%">
+                    <input class="control-label" type="checkbox" ng-click="clickindustryavailable(9)">        その他
+                </td>
+                <td style="font-size: 12px">
+                </td>
+                <td style="font-size: 12px">
+                </td>
+            </tr>                                 
+        </tbody>
+    </table>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>対象地域</b></h3>
+</div>
+<div class="row" style="margin-top: 40px;margin-bottom: 40px">
+    <div class="row">
+        <div class="form-group col-sm-4"> 
+            <md-select placeholder="都道府県を選択してください" ng-model="selectregionitem.text" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:20px;" ng-repeat="selectregionitem in selectedregionstring">
+              <md-option ng-value="regionitem.region" style="max-width:320px;" ng-repeat="regionitem in downeddisplayregionstring">{{regionitem.region}}</md-option>
+            </md-select>
+        </div>
+        <div class="form-group col-sm-4"> 
+            <md-select placeholder="府省庁を選択してください" ng-model="selectministryitem.text" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:20px;" ng-repeat="selectministryitem in selectedministrystring">
+              <md-option ng-value="ministryitem.ministry" style="max-width:320px;" ng-repeat="ministryitem in downeddisplayministrystring">{{ministryitem.ministry}}</md-option>
+            </md-select>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-4 text-center" ng-click="clickaddregion()">
+             <a>複数選択をする</a>
+        </label>
+        <label class="col-sm-4 text-center" ng-click="clickaddministry()">
+             <a>複数選択をする</a>
+        </label>
+    </div>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>費用を入力する</b></h3>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"></td> 
+                <td style="font-size: 12px">
+                    <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                        <div class="col-sm-2">
+                            <input class="control-label" type="checkbox" value="">    書類代行費用
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Placeholder text"> 
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control"> 
+                                <option>1</option>                                                     
+                                <option>2</option>                                                     
+                                <option>3</option>                                                     
+                            </select>                                                 
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                        <div class="col-sm-2">
+                            <input class="control-label" type="checkbox" value="">    申請代行費用
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Placeholder text"> 
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control"> 
+                                <option>1</option>                                                     
+                                <option>2</option>                                                     
+                                <option>3</option>                                                     
+                            </select>                                                 
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                        <div class="col-sm-2">
+                            <input class="control-label" type="checkbox" value="">    着手金
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="Placeholder text"> 
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control"> 
+                                <option>1</option>                                                     
+                                <option>2</option>                                                     
+                                <option>3</option>                                                     
+                            </select>                                                 
+                        </div>
+                    </div>                                         
+                </td>
+            </tr>                                 
+        </tbody>
+    </table>
+</div>
+<div class="row" style="text-align: center">
+    <button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="saveavailabletask()">設定する</button>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <h3 class="h1-left-border"> <b>設定登録費用</b></h3>
+</div>
+<div class="row" style="margin-top: 40px;margin-bottom: 40px">
+    <button type="button" class="btn-primary btn btn-style-shadow-blue">新規登録</button>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                    <select class="form-control"> 
+                        <option>1</option>                                             
+                        <option>2</option>                                             
+                        <option>3</option>                                             
+                    </select>
+                    <b>&nbsp;</b>
+                </td>                                     
+                <td style="font-size: 12px">
+                    <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                        <div class="col-sm-2">
+                            <h5>
+業務内容                                            </h5>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3">
+                                    <input class="control-label" type="checkbox" value="">    書類代行費用                                              
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="form-control"> 
+                                        <option>1</option>                                                             
+                                        <option>2</option>                                                             
+                                        <option>3</option>                                                             
+                                    </select>                                                         
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3">
+                                    <input class="control-label" type="checkbox" value="">    申請代行費用
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="form-control"> 
+                                        <option>1</option>                                                             
+                                        <option>2</option>                                                             
+                                        <option>3</option>                                                             
+                                    </select>                                                         
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px;margin-top: 40px">
+                        <div class="col-sm-2">
+                            <h5>着手金</h5>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h5>着手金</h5> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                        <div class="col-sm-2">
+                            <h5>その他費用</h5>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3">
+                                    <h5>合計</h5> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3">
+                                    <h5>内訳</h5> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3"> 
+</div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3"> 
+</div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3"> 
+</div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3"> 
+</div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" placeholder="Placeholder text"> 
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                <div class="col-sm-3"> 
+</div>
+                                <div class="col-sm-3"> 
+                                    <button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                        <strong>設定を保存</strong>
+                                    </button>
+                                </div>
+                                <div class="col-sm-3"> 
+</div>
+                            </div>
+                        </div>
+                    </div>                                         
+                </td>
+            </tr>                                 
+        </tbody>
+    </table>
+</div>

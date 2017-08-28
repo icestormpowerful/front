@@ -1,0 +1,69 @@
+
+<div class="container">
+            <div class="row">
+                <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+                <img src="./assets/img/top_bar_2.png" />
+            </div>
+            <div class="row">
+                <h1><strong>別の案件を提案する</strong></h1> 
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 20px"><b>検索結果で表示された案件とは、別の案件を士業の方に依頼する事が出来ます。条件を指定して、仕事のオファーをかけてみましょう！</b></p>
+            </div>
+            <div class="row" style="">
+                <div style="border-bottom: 1px solid #ddd;margin-bottom:20px">
+                    <ul class="nav nav-tabs tab-1"> 
+                        <li class="tab-style-grey active">
+                            <a href="#F13tab1" data-toggle="tab"> <b> <u>施策詳細</u></b></a>
+                        </li>                         
+                        <li class="tab-style-grey">
+                            <a data-toggle="tab" ng-click="F14view_subsidy_detail()"> <b> <u>依頼詳細</u></b></a>
+                        </li>                         
+                    </ul>
+                </div>
+            </div>
+            <div class="row" id="F13tab1">
+                <p class="text-primary">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルルタイトルルタイトル</p>
+                <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                    <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                    <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                    <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                </div>
+                <div class="col-sm-12" style="padding-right: 30px">
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>登録機関</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].register_insti_detail}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>目的</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].target}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>対象者の詳細</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].info}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>支援内容・支援規模</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].support_content}}<br/>
+                            {{F12displaysubsidylist[F12subsidy_index].support_scale}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>募集期間</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].subscript_duration}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>対象期間</b></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].object_duration}}</p>
+                    </div>
+                    <div class="row" style="margin-top:10px;margin-bottom:10px">
+                        <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>pdfデータ</b></p>
+                        <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinF2screen(F12displaysubsidylist[F12subsidy_index].register_pdf)">
+                            <a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+                        <p style="margin-top: 10px">{{F12displaysubsidylist[F12subsidy_index].target}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row text-center" style="margin-top:40px;margin-bottom:50px;">
+                <button style="width:20%" class="btn btn-default btn-style-shadow-grey" type="button" >戻る</button>
+            </div>
+        </div>

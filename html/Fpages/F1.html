@@ -1,0 +1,232 @@
+
+<div class="container">
+    <div class="row">
+
+        <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+        <img src="./assets/img/top_bar_2.png" />
+
+    </div>
+    <div class="row">
+        <h1><strong>助成金・補助金自動マッチング</strong></h1>
+        <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>プロフィールの設定にに対して、マッチングしている助成金・補助金が表示されています。対応可能と思われる、助成金・補助金の設定が行え、企業に直接営業も可能です。</b></p>
+    </div>
+    <div class="row div-style-grey" style="margin-top: 0px;margin-bottom: 20px">
+        <div class="col-sm-6">
+            <h5 style="font-size: 13px">{{(F1pagination.totalitem/F1pagination.itemperpage + 1).toFixed(0)}}/{{F1pagination.current_page}}</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="col-sm-3" style="font-size: 13px">並び替え：</h5>
+            <div class="col-sm-3">
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <h5 class="col-sm-3" style="font-size: 13px">表示件数：</h5>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="F1CountPerPage.value" ng-change="F1CntPerPageUpdate()">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+            <div style="margin-bottom: 20px;text-align: left">
+                <h3 class="h1-left-border"> <b style="color: #337ab7;">リスト一覧</b></h3>
+            </div>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="search_Subsidy_type(0)">
+                    <strong>提案を検討リスト</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="search_Subsidy_type(1)">
+                    <strong>興味リスト</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="search_Subsidy_type(2)">
+                    <strong>非表示リスト</strong>
+                </button></p>
+            <div style="margin-bottom: 20px;text-align: left">
+                <h3 class="h1-left-border"> <b style="color: #337ab7;">検索設定条件</b></h3>
+            </div>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                    <strong>プロフィールの設定</strong>
+                </button></p>
+            <ul style="text-align: left;">
+                <li>
+                    <a>設定項目</a>
+                </li>
+                <li>
+                    <a>設定項目</a>
+                </li>
+                <li>
+                    <a>設定項目</a>
+                </li>
+                <li>
+                    <a>設定項目</a>
+                </li>
+                <li>
+                    <a>設定項目</a>
+                </li>
+                <li>
+                    <a>設定項目</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-10">
+            <div class="row">
+                <!--
+                <table class="table">
+                    <tbody>
+                    <tr ng-repeat="subsidyitem in F1displaysubsidylist">
+                        <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                            <div class="row">
+                                <div class="col-sm-2" style="margin-top: 20px" ng-click="F1view_subsidy_detail($index)">
+                                    <img src={{displayimageurl+subsidyitem.image_id}} style="width: 100px;height:100px;">
+                                </div>
+                                <div class="col-sm-8" ng-click="F1view_subsidy_detail($index)">
+                                    <h3 class="text-primary"><b>{{subsidyitem.name}}</b></h3>
+                                    <h4 class="text-primary"><b>登録期間:</b>{{subsidyitem.register_insti_detail}}/<b>募集時期:</b>
+                                        {{subsidyitem.subscript_duration}}/<b>金額:</b>{{subsidyitem.acquire_budget}}</h4>
+                                    <p style="font-size: 14px">{{subsidyitem.target}}</p>
+                                </div>
+
+                                <div class="col-sm-2" style="padding-right: 10px;padding-top:50px;">
+                                    <div style="float:right;">
+                                        <button type="button" class={{exist_subsidy_tosetbalance(subsidyitem.id).style}}
+                                                style="width: 100%;" ng-click="select_subsidy_tosetbalance(subsidyitem.id)">
+                                            {{exist_subsidy_tosetbalance(subsidyitem.id).text}}</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,0)">提案を検討</button>
+                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,1)">興味あり</button>
+                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,2)">非表示</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <div class="row">
+                        <ul uib-pagination total-items="F1pagination.totalitem" max-size="3"
+                            ng-model="F1pagination.current_page" previous-text="前へ" next-text="次へ"
+                            first-text="最初" last-text="最後" direction-links="false"
+                            boundary-links="true" items-per-page="F1pagination.itemperpage"
+                            class="pagination-sm" boundary-link-numbers="true"
+                            rotate="true" ng-change="F1paginationchange()"></ul>
+                    </div>
+                    <div class="row" style="padding-right: 10px">
+                        <button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="direct_set_balance()">費用を設定する</button>
+                    </div>
+                </div>
+-->
+                <table class="table" ng-repeat="subsidyitem in F1displaysubsidylist">
+                    <tbody>
+                        <tr>
+                            <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="row col-sm-3" style="margin-top: 20px" ng-click="F1view_subsidy_detail($index)">
+                                            <img src={{displayimageurl+subsidyitem.image_id}} style="width: 100px">
+                                        </div>
+                                        <div class="col-sm-9" ng-click="F1view_subsidy_detail($index)">
+                                            <h3 class="text-primary"><b>{{subsidyitem.name}}</b></h3>
+                                            <h4 class="text-primary"><b>登録期間:</b>{{subsidyitem.register_insti_detail}}/<b>募集時期:</b>
+                                                {{subsidyitem.subscript_duration}}
+                                                <!--
+                                                /<b>金額:</b>{{subsidyitem.acquire_budget}}
+                                                -->
+                                                </h4>
+                                            <p style="font-size: 14px">{{subsidyitem.target}}</p>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px"
+                                                    ng-click="click_subsidy_put(subsidyitem.id,0)">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px"
+                                                    ng-click="click_subsidy_put(subsidyitem.id,1)">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px"
+                                                    ng-click="click_subsidy_put(subsidyitem.id,2)">非表示</button>
+                                            <button type="button" class="btn btn-danger btn-style-shadow-red"
+                                                    style="float:right;width: 180px">取得可能額：{{subsidyitem.acquire_budget}}</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" style="margin-top:10px">
+                                        <div class="div-style-grey" style="margin-bottom:0;margin-top: 0;">
+                                            <div class="row">
+                                                <div class="col-sm-5">
+                                                    <img src={{displayimageurl+subsidyitem.image_id}} style="width: 60px">
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <div class="row">
+                                                        <p style="margin-bottom:0px;">実績：</p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p style="margin-bottom:0px;">評価：</p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <button type="button" class="btn-primary" style="width: 100%">保存する</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p style="margin: 10px 5px 0px 5px;">テキストテキストテキスト</p>
+                                            </div>
+                                        </div>
+                                        <div class="div-style-grey" style="margin: 0 0;background-color: rgba(176, 176, 215, 1);text-align:center">
+                                            <h6>提携可能企業広告表示</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1" style="padding-top: 9%;">
+                                        <a>{{subsidyitem.count_agency}}人</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-center">
+                    <div class="row">
+                        <ul uib-pagination total-items="F1pagination.totalitem" max-size="3"
+                            ng-model="F1pagination.current_page" previous-text="前へ" next-text="次へ"
+                            first-text="最初" last-text="最後" direction-links="false"
+                            boundary-links="true" items-per-page="F1pagination.itemperpage"
+                            class="pagination-sm" boundary-link-numbers="true"
+                            rotate="true" ng-change="F1paginationchange()"></ul>
+                    </div>
+                    <div class="row" style="padding-right: 10px">
+                        <button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="direct_set_balance()">費用を設定する</button>
+                    </div>
+                </div>
+                <!--
+                <div class="text-center">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#">«</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">1 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">3</a>
+                        </li>
+                        <li>
+                            <a href="#">»</a>
+                        </li>
+                    </ul>
+                </div>
+-->
+            </div>
+            <!--
+            <td style="border-top: 0px; border-bottom: 1px solid #dddddd"></td>
+            -->
+        </div>
+    </div>
+</div>

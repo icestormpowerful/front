@@ -1,0 +1,187 @@
+<div class="content">
+	<div class="inner-content">
+		<div class="inner-container">
+			<div class="row">
+				<div class="col-md-3 pull-left">
+					<div class="sidebar-left">
+						<ul>
+							<li class="active"><a href="#!/employee/data/subsidylist">助成金データ</a></li>
+							<li><a href="#!/employee/data/subsidyagency">士業登録助成金データ</a></li>
+							<li><a href="#!/employee/data/subsidyadd">助成金データ新規登録</a></li>
+							<li><a href="#!/employee/data/document">書類管理</a></li>
+							<li><a href="#!/employee/data/registration">登録募集施策</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-9 pull-right">
+				<div class="site-content">
+					<div class="section-1">
+						<div class="success-msg">
+							<span>新規スタッフを登録しました。</span>
+						</div>
+					</div>
+				   
+					<div class="section-2 col-md-12">
+						<div class="row">
+							<div class="col-md-1"></div>
+							<div class="col-md-5">
+								<form class="form-horizontal">
+							        <div class="form-group" style="margin-top:20px;">
+									  <p class="col-sm-4">案件No</p>
+									  <div class="col-sm-7">
+									    	<md-select placeholder="すべて" ng-model="selectedprojectno" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+										      <md-option ng-value="projectnoitem" style="max-width:320px;" ng-repeat="projectnoitem in porjectnolist">{{projectnoitem}}</md-option>
+										    </md-select>
+									  </div>
+									</div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">登録機関</p>
+								        <div class="col-sm-7">
+									    	<md-select placeholder="すべて" ng-model="selectedcompany" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+										      <md-option ng-value="companyitem.register_insti_detail" style="max-width:320px;" ng-repeat="companyitem in register_companylist">{{companyitem.register_insti_detail}}</md-option>
+										    </md-select>
+									  	</div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">対象地域</p>
+								        <div class="col-xs-7">
+								        	<md-select placeholder="すべて" ng-model="selectedregion" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+										      <md-option ng-value="regionitem.region" style="max-width:320px;" ng-repeat="regionitem in regionlist">{{regionitem.region}}</md-option>
+										    </md-select>
+									    	<!-- <select id="company" class="form-control" style="padding-top:0px;">
+									      		<option ng-repeat="regionitem in regionlist" data-limit='37' style="max-width:100px;width:100px;">{{regionitem.region}}</option>
+									    	</select>  -->
+									  	</div>
+								    </div>
+								</form>
+							</div>
+							<div class="col-md-5">
+								<form class="form-horizontal">
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">ステータス</p>
+								        <div class="col-sm-7">
+									    	<md-select placeholder="すべて" ng-model="selectedstatus" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+										      <md-option ng-value="statusitem" style="max-width:320px;" ng-repeat="statusitem in statuslist">{{statusitem}}</md-option>
+										    </md-select>
+									  	</div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">分野</p>
+								        <div class="col-sm-7">
+									    	<md-select placeholder="すべて" ng-model="selectedcategory" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+										      <md-option ng-value="categoryitem" style="max-width:320px;" ng-repeat="categoryitem in categorylist">{{categoryitem}}</md-option>
+										    </md-select>
+									  	</div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">キーワード</p>
+								        <div class="col-sm-7">
+								          <input class="form-control" id="focusedInput" type="text" placeholder="キーワード" ng-model="subsidykeyword">
+								        </div>
+								    </div>
+								</form>
+							</div>
+						</div>
+						<div style="margin-top:50px;">
+					        <input type="submit" name="submit" class="submit-blue-btn" value="検索する" ng-click="submitSearch($event)">
+					    </div>
+					</div>
+
+					
+
+					<div class="section-3 col-md-12">
+						<h4>助成金データ</h4>
+						<div class="section3-full">
+							<div class="section3-full-scroll">
+								<div class="row">
+									<div class="col-sm-12">
+							          <input type="checkbox" ng-checked="selectedsubsidyexist(0)" ng-click="selectedsubsidytoggle(0)">すべて &nbsp; &nbsp; &nbsp;
+							          <input type="checkbox" ng-checked="selectedsubsidyexist(1)" ng-click="selectedsubsidytoggle(1)">公開 &nbsp; &nbsp; &nbsp;
+							          <input type="checkbox" ng-checked="selectedsubsidyexist(2)" ng-click="selectedsubsidytoggle(2)">未公開 &nbsp; &nbsp; &nbsp;
+							          <input type="checkbox" ng-checked="selectedsubsidyexist(3)" ng-click="selectedsubsidytoggle(3)">公開不可 &nbsp; &nbsp; &nbsp;
+							          <input type="checkbox" ng-checked="selectedsubsidyexist(4)" ng-click="selectedsubsidytoggle(4)">掲載終了
+							        </div>
+						        </div>
+						        <div class="row" style="margin-top:30px;">
+							        <div class="col-sm-3">
+							        	<md-select placeholder="一括操作" ng-model="settedchangestatus" style="min-width: 100px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+                                          <md-option value="公開" style="max-width:320px;">公開</md-option>
+                                          <md-option value="未公開" style="max-width:320px;">未公開</md-option>
+                                          <md-option value="公開不可" style="max-width:320px;">公開不可</md-option>
+                                          <md-option value="掲載終了" style="max-width:320px;">掲載終了</md-option>
+                                        </md-select>
+								  	</div>
+								  	<div class="col-sm-2">
+								        <input type="submit" name="submit" class="submit-blue-btn" value="適用" ng-click="clickchangestatus()">
+								    </div>
+							    </div>
+							</div>
+							<div class="pos-right">{{totaltableitem}}件表示  /  {{totalsubsidyitemcount}}件</div>
+						</div>
+					</div>
+					
+					<div class="section-4 col-md-12" style="overflow-x:auto;display:block;">
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th style="min-width:120px;">ステータス</th>
+									<th style="min-width:80px;" ng-click="clickheader(1)">施策ID <span class={{tableheaderclassname[headerid]}}></span></th>
+									<th style="min-width:130px;">施策名</th>
+									<th style="min-width:130px;">施策名Sub</th>
+									<th style="min-width:150px;" ng-click="clickheader(2)">登録機関 <span class={{tableheaderclassname[headercompany]}}></span></th>
+									<th style="min-width:250px;">分野・カテゴリー</th>
+									<th style="min-width:250px;">対象地域</th>
+									<th style="min-width:150px;">更新日</th>
+									<th style="min-width:550px;">目的</th>
+									<th style="min-width:450px;">対象者の詳細</th>
+									<th style="min-width:450px;">支援内容</th>
+									<th style="min-width:190px;">取得可能金額</th>
+									<th style="min-width:450px;">支援規模</th>
+									<th style="min-width:250px;">募集期間</th>
+									<th style="min-width:250px;">対象期間</th>
+									<th style="min-width:80px;">採択結果</th>
+									<th style="min-width:80px;">登録PDF</th>
+									<th style="min-width:250px;">お問い合わせ</th>
+									<th style="min-width:100px;">おすすめの助成金補助金</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class={{tableitem.classname}} ng-repeat="tableitem in tableitemarray" ng-click="clicksubsidytoedit(tableitem.subsidyid)">
+									<td  ng-click="$event.stopPropagation()"><input type="checkbox" name="yes" ng-model="tableitem.checkboxstate" ng-change="checkboxchange(tableitem.checkboxstate,tableitem.subsidyid)"></td>
+									<td>{{tableitem.status}}</td>
+									<td>{{tableitem.subsidyid}}</td>
+									<td>{{tableitem.subsidyname}}</td>
+									<td>{{tableitem.subsidynamesub}}</td>
+									<td>{{tableitem.company}}</td>
+									<td>{{tableitem.category}}</td>
+									<td>{{tableitem.region}}</td>
+									<td>{{tableitem.updatetime}}</td>
+									<td>{{tableitem.purpose}}</td>
+									<td>{{tableitem.targetinfo}}</td>
+									<td>{{tableitem.support}}</td>
+									<td>{{tableitem.availableamount}}</td>
+									<td>{{tableitem.supportscale}}</td>
+									<td>{{tableitem.recruitment}}</td>
+									<td>{{tableitem.period}}</td>
+									<td>{{tableitem.adoption}}</td>
+									<td><a ng-repeat="pdfitem in tableitem.registerpdf" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br /></a></td>
+									<td>{{tableitem.contact}}</td>
+									<td>{{tableitem.recommandsubsidy}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					
+					<div class="pagination">
+						<ul uib-pagination total-items="totaltableitem" max-size="5" ng-model="paginationnumber" previous-text="前へ" next-text="次へ" first-text="最初" last-text="最後" direction-links="false" boundary-links="true" items-per-page="tablepageitemcount" class="pagination-sm" boundary-link-numbers="true" rotate="true" ng-change="paginationchange()"></ul>
+					</div>
+				</div>
+        
+        
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

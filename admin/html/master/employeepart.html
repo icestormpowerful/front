@@ -1,0 +1,111 @@
+<div class="content">
+	<div class="inner-content">
+		<div class="inner-container">
+			<div class="row">
+				<div class="col-md-3 pull-left">
+					<div class="sidebar-left">
+						<ul>
+							<li><a href="#!/master/profile">システム設定</a></li>
+							<li class="active"><a href="#!/master/employeeedit">スタッフ登録</a></li>
+							<li><a href="#!/master/loginhistory">ログイン履歴</a></li>
+							<li><a href="#!/master/edithistory">編集履歴</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-9 pull-right">
+					<div class="site-content">
+						<div class="section-1">
+							<div class={{messagestyleclass}} style={{messageshowstate}}>
+								<span>{{messagestring}}</span>
+							</div>
+						</div>
+						<div class="section-2 col-md-12">
+							<div class="col-md-1">							   
+							</div>
+							<div class="col-md-11">
+								<form class="form-horizontal">
+									<div class="form-group" style="margin-top:30px;">
+								        <p class="col-sm-4">スタッフID</p>
+								        <p class="col-sm-5">{{employeeidstring}}</p>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">氏名</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="text" placeholder="氏名" ng-model="employeename">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">管理者権限</p>
+								        <div class="col-sm-6">
+									          <input type="radio" name="permission" ng-model="employeepermission" value="1">master &nbsp; &nbsp; &nbsp;
+									          <input type="radio" name="permission" ng-model="employeepermission" value="2">運営者 &nbsp; &nbsp; &nbsp;
+									          <input type="radio" name="permission" ng-model="employeepermission" value="3">編集者
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">ログインID</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="text" placeholder="8文字以上" ng-model="employeeloginid">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">ログインパスワード</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="password" placeholder="8文字以上" ng-model="employeepassword">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">(確認)</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="password" ng-model="employeepasswordverify">
+								        </div>
+								    </div>
+								</form>
+							</div>
+						</div>
+
+				        <div style="margin-top:50px;">
+				          <input type="submit" name="submit" class="submit-blue-btn" value={{buttonstringarray[buttonstatus]}} ng-click="submitRegister()">
+				        </div>
+
+						<label style="font-size:22px;">スタッフ一覧</label>
+						<div style="border-bottom:1px solid #000000;margin-bottom:40px;"></div>
+
+						<div class="row" style="margin-bottom:20px;">
+							<div class="col-sm-12">
+								<form class="searchPart">
+			                        <!-- <i class="glyphicon glyphicon-search"></i> -->
+			                        <button type="button" class="submit-blue-search" style="margin-left:10px;">クリア</button>  
+			                        <button type="button" class="submit-blue-search">検索</button>  
+			                        <input type="text" name="search" placeholder="">      
+			                    </form>
+							</div>
+						</div>
+
+						<div class="section-4 col-md-12">
+						<table>
+							<thead>
+								<tr>
+									<th>表示・編集</th><th>登録日</th><th>スタッフID</th><th>名前</th><th>権限</th><th>ログインID</th><th>ログインパスワード</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class={{tableitem.classname}} ng-repeat="tableitem in tablearray">
+									<td><button type="button" class="submit-edit-button" style="margin-right:10px;" ng-click="submitEditEmployee(tableitem.employeeindex)"></button><button type="button" class="submit-delete-button" ng-click="submitDeleteEmployee($event,tableitem.employeeindex)"></button></td>
+									<td>{{tableitem.date}}</td>
+									<td>{{tableitem.id}}</td>
+									<td>{{tableitem.name}}</td>
+									<td>{{permissionstring[tableitem.permission]}}</td>
+									<td>{{tableitem.login_id}}</td>
+									<td>{{tableitem.login_password}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

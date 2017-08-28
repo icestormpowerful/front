@@ -1,0 +1,339 @@
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row" style="margin-bottom:20px;">
+            <p style="font-size: 14px; border-bottom: 1px solid #dddddd;"><b><span style="font-size: 15px;color: #337ab7;">STEP2</span>        依頼内容を入力します。</b></p>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                <tbody> 
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>依頼タイトル</b>
+                            <button type="button" class="btn-primary" style="background-color: red;border-color: red;float:right" disabled>必須</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input type="text" name="lname" style="width:100%;" ng-model="btrequest.title">
+                        </td>                                     
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"> 
+                            <b>目的</b>
+                            <button type="button" class="btn-primary" style="background-color: red;border-color: red;float:right" disabled>必須</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea rowspan="5" name="lname" style="width:100%;height:70px;" ng-model="btrequest.purpose"></textarea>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>重視する点</b>
+                            <button type="button" class="btn-primary" style="float:right" disabled>任意</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <div class="col-sm-3" style="padding-left:0px">
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(0)" ng-click="importanttoggle(0)">     予算 
+                                <br>
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(4)" ng-click="importanttoggle(4)">     実績評価
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(1)" ng-click="importanttoggle(1)">     納期 
+                                <br>
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(5)" ng-click="importanttoggle(5)">     取得確率
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(2)" ng-click="importanttoggle(2)">   こまめな連絡 
+                                <br>
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(6)" ng-click="importanttoggle(6)">   手離れの良さ
+                            </div>
+                            <div class="col-sm-3">
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(3)" ng-click="importanttoggle(3)">     クオリティー 
+                                <br>
+                                <input class="control-label" type="checkbox" ng-checked="importantexist(7)" ng-click="importanttoggle(7)">     その他
+                            </div>
+                        </td>                                     
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>補足説明</b>
+                            <button type="button" class="btn-primary" style="float:right" disabled>任意</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 12px;width: 80%">
+                            <textarea rowspan="5" name="lname" style="width:100%;height:70px;" ng-model="btrequest.comment"></textarea>
+                        </td>                                     
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>添付ファイル</b>
+                            <button type="button" class="btn-primary" style="float:right" disabled>任意</button>
+                        </td>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[0]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(0)"></button>
+                            </div>
+                        </td>
+                        <td rowspan="5" style="width:50%;text-align:center;vertical-align: middle;">
+                            <div class="row" style="height:250px;width:100%;margin-left:0px;margin-right:0px;">
+                                <div id="dropbox" class="dropbox" ng-class="dropClass"><span class="glyphicon glyphicon-file" style="position: relative;top:5%;font-size: 50px;"></span><p style="font-size:14px;position: relative;top:18%;">アップロードする場合は、ここに ドラッグ＆ドロップしてください。</p></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[1]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(1)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[2]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(2)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[3]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(3)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[4]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(4)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>募集の締め切り</b>
+                            <button type="button" class="btn-primary" style="background-color: red;border-color: red;float:right" disabled>必須</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input type="date" name="lname" style="width:40%;" ng-model="btrequest.enddate" max={{limitdaystring.max}} min={{limitdaystring.min}}>
+                        </td>                                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row" style="margin-top:40px;margin-bottom:20px;"> 
+            <p style="font-size: 14px; border-bottom: 1px solid #dddddd;"><b><span style="font-size: 15px;color: #337ab7;">STEP3</span>        希望内容・予算を設定します。</b></p>
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                <tbody> 
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>依頼業務</b>
+                            <button type="button" class="btn-primary" style="background-color: red;border-color: red;float:right" disabled>必須</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 14px;width: 100%">
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-sm-3">
+                                    <input type="checkbox" ng-model="btrequest.job_business">     設定しない
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="checkbox" ng-model="btrequest.document_business_flag" ng-disabled="!btrequest.job_business">     書類作成費用
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group has-feedback">
+                                        <input type="number" class="form-control" placeholder="書類作成費用" ng-disabled="!btrequest.job_business||!btrequest.document_business_flag" ng-model="btrequest.document_business_balance">
+                                        <span class="form-control-feedback" style="width:50px;">円以下</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:10px;">
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="checkbox" ng-model="btrequest.request_business_flag" ng-disabled="!btrequest.job_business">     申請代行費用
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="col-sm-3">
+                                        <input type="radio" name="gender" value="1" ng-disabled="!btrequest.job_business||!btrequest.request_business_flag" ng-model="btrequest.request_business_balance">     成果報酬0%以下
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="radio" name="gender" value="2" ng-disabled="!btrequest.job_business||!btrequest.request_business_flag" ng-model="btrequest.request_business_balance">     成果報酬20%以下
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="radio" name="gender" value="3" ng-disabled="!btrequest.job_business||!btrequest.request_business_flag" ng-model="btrequest.request_business_balance">     成果報酬30%以下
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="radio" name="gender" value="4" ng-disabled="!btrequest.job_business||!btrequest.request_business_flag" ng-model="btrequest.request_business_balance">     成果報酬40%以下
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="checkbox" ng-model="btrequest.other_business_flag" ng-disabled="!btrequest.job_business">     その他
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group has-feedback">
+                                        <input type="number" class="form-control" placeholder="その他費用" ng-disabled="!btrequest.job_business||!btrequest.other_business_flag" ng-model="btrequest.other_business_balance">
+                                        <span class="form-control-feedback" style="width:50px;">円以下</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>                                     
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <b>着手金</b>
+                            <button type="button" class="btn-primary" style="background-color: red;border-color: red;float:right" disabled>必須</button>
+                        </td>                                     
+                        <td colspan="2" style="font-size: 14px;width: 100%;">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="radio" value="1" name="startbalance" ng-model="btrequest.stbalance"> 設定しない
+                                </div>
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="radio" value="2" name="startbalance" ng-model="btrequest.stbalance">     着手なし
+                                </div>
+                                <div class="col-sm-2">
+                                    <input class="control-label" type="radio" value="3" name="startbalance" ng-model="btrequest.stbalance">     着手金
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group has-feedback">
+                                        <input type="number" class="form-control" placeholder="着手金" ng-model="btrequest.startbalance" ng-disabled="btrequest.stbalance!=3">
+                                        <span class="form-control-feedback" style="width:50px;">円以下</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>                                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row" style="margin-top:40px;margin-bottom:20px;"> 
+            <p style="font-size: 14px; border-bottom: 1px solid #dddddd;"><b><span style="font-size: 15px;color: #337ab7;">OPTION</span>        優良オプションを設定します。</b></p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row div-style-blue2" style="">
+            <b>ご依頼を不特定多数の方へみられたくない方へ</b>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(0)" ng-click="payoptiontoggle(0)"> 
+                <span style="color: #337ab7;">完全非公開オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+10,800円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼を非公開にして提案を募集することができます。<br/>
+                    募集中は士業とクライアント（法人）しか依頼を閲覧することができず、募集終了後には当選ユーザー及び依頼したクライアントのみ閲覧することができます。<br/>
+                    ※士業が依頼詳細ページを閲覧するには本人確認と機密保持確認が必須となります。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(1)" ng-click="payoptiontoggle(1)"> 
+                <span style="color: #337ab7;">非公開オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+5,400円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼を非公開にして提案を募集することができます。（非公開オプションをつけていても、士業にログインすると、表示されてしまいます。予めご了承ください。）</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row div-style-blue2" style="">
+            <b>多くの依頼を提案してほしい方へ</b>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(2)" ng-click="payoptiontoggle(2)"> 
+                <span style="color: #337ab7;">急募オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+7,500円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    仕事依頼が急募であることを表示し、どの依頼よりも最優先で上位表示します。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(3)" ng-click="payoptiontoggle(3)"> 
+                <span style="color: #337ab7;">注目オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+3,240円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    仕事依頼をより多くの士業に見つけてもらえるように表示されます。多くの提案を集めることができます。</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row div-style-blue2" style="">
+            <b>士業の方へダイレクトに通知します</b>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(4)" ng-click="payoptiontoggle(4)"> 
+                <span style="color: #337ab7;">マイページ表示オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+54,000円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    士業のマイページに、お客様（法人）の依頼ページリンクが表示されます。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(5)" ng-click="payoptiontoggle(5)"> 
+                <span style="color: #337ab7;">認定士業への一斉通知オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+16,200円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼内容を認定士業にメールで告知・宣伝ができます。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <input class="control-label" type="checkbox" ng-checked="payoptionexist(6)" ng-click="payoptiontoggle(6)"> 
+                <span style="color: #337ab7;">士業100人への一斉通知オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+5,400円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼内容を実績ある士業100名にメールで告知・宣伝ができます。</p>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-bottom: 20px; ">
+            <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-right :10px;width:20%" ng-click="checkcontent()">内容を確認する</button>
+            <button style="width:20%" class="btn btn-default btn-style-shadow-grey" type="button">下書き保存</button>
+        </div>
+    </div>
+</div>

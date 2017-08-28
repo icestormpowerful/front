@@ -1,0 +1,157 @@
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <div class="col-sm-12">
+        <h3 class="h1-left-border"><b>登録者情報</b></h3>
+    </div>
+</div>
+<div class="row" style="text-align: center">
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>ユーザー名</h4> 
+        </div>
+        <div class="col-sm-8">
+            <h4>{{username}}（<strong>ユーザー名</strong>）</h4> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>表示名</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="表示名" ng-model="editprofile.displayname"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>担当者名</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="担当者名" ng-model="editprofile.performer"> 
+        </div>
+    </div>
+</div>
+<div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+    <div class="col-sm-12">
+        <h3 class="h1-left-border"><b>士業情報</b></h3>
+    </div>
+</div>
+<div class="row" style="text-align: center">
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>区分</h4> 
+        </div>
+        <div class="col-sm-8 text-left">
+            <label class="col-sm-4">
+                <input class="control-label" type="radio" ng-model="editprofile.section" value="1" ng-checked="!(editprofile.section-1)">        個人
+            </label>
+            <label class="col-sm-4">
+                <input class="control-label" type="radio" ng-model="editprofile.section" value="2" ng-checked="editprofile.section-1">        法人
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>事業所名</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="事業所名" ng-model="editprofile.company_name"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>所在地</h4> 
+        </div>
+        <div class="col-sm-8">
+            <div class="btn-group col-sm-4"> 
+                <md-select placeholder="所在地" ng-model="editprofile.municipality" style="min-width: 150px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;" ng-change="selectprovinceprofile()" ng-disabled="editprofile.municipalityflag">
+                  <md-option ng-value="provinceitem[0]" style="max-width:320px;" ng-repeat="provinceitem in displaylocation">{{provinceitem[0]}}</md-option>
+                </md-select>
+            </div>
+            <div class="col-sm-3">
+                <input class="control-label" type="checkbox" ng-model="editprofile.municipalityflag">        その他
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model="editprofile.municipality" placeholder="所在地" class="col-sm-6" ng-disabled="!editprofile.municipalityflag"> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>市区町村</h4> 
+        </div>
+        <div class="col-sm-8">
+            <div class="btn-group col-sm-4"> 
+                <md-select placeholder="選択" ng-model="editprofile.location" style="min-width: 150px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;" ng-disabled="editprofile.locationflag">
+                  <md-option ng-value="cityitem" style="max-width:320px;" ng-repeat="cityitem in displaylocation[editprofile.cityindex][1]">{{cityitem}}</md-option>
+                </md-select>                                   
+            </div>
+            <div class="col-sm-3">
+                <input class="control-label" type="checkbox" ng-model="editprofile.locationflag">        その他
+            </div>
+            <div class="col-sm-5">
+                <input type="text" class="form-control" ng-model="editprofile.location" placeholder="市区町村" class="col-sm-6" ng-disabled="!editprofile.locationflag"> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>番地・建物名</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="番地・建物名" ng-model="editprofile.street_building_name"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>電話番号</h4>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="電話番号" ng-model="editprofile.phone_number"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>FAX番号</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="FAX番号" ng-model="editprofile.fax"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>プロフィール画像</h4> 
+        </div>
+        <div class="col-sm-8"> 
+            <div class="input-group" style="margin-bottom: 20px">
+                <input type="text" class="form-control" ng-model="editprofile.displayimagename">
+                <div class="input-group-btn">
+                    <label for="file" class="btn btn-primary">
+                        参照
+                    </label>
+                    <input id="file" type="file" style="display: none;" accept="image/*" ngf-select="selectNewImage($files)"/>
+                    <!-- <button class="btn btn-primary" type="submit">参照</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>URL</h4> 
+        </div>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="URL" ng-model="editprofile.url"> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>自己紹介</h4> 
+        </div>
+        <div class="col-sm-8">
+            <textarea class="form-control" rows="3" ng-model="editprofile.self_intro">
+                
+            </textarea>                                 
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:20px;"> 
+        <button type="button" class="btn-primary btn" style="box-shadow-type-0: outside;box-shadow: 1px 1px 0px 2px #185b9f;padding-left: 30px;padding-right: 30px;margin-top: 30px" ng-click="clicksaveeditedprofile()">登録する</button>
+    </div>
+</div>               

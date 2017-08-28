@@ -1,0 +1,104 @@
+<div class="container">
+            <div class="row">
+                <label class="container-header-pagetext">
+                <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;プロフィール</label>
+            </div>
+            <div class="row">
+                <h1><strong>プロフィール</strong></h1>
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>自己紹介は細かく記述しましょう！プロフィールを細かく記載している方の申請が通常の方の４倍違ってきます。</b></p>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+                    <div class="div-style-blue" style="margin-top: 0px">
+                        <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                        <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                        <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+                    </div>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                            <strong>マイページトップ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                            <strong>プロフィール管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                            <strong>会員情報管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                            <strong>仕事管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                            <strong>メッセージ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                            <strong>保存リスト</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                            <strong>各種認証設定</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                            <strong>支払い管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                            <strong>アフィリエイト管理</strong>
+                        </button></p>
+                </div>
+                <div class="col-sm-8" style="padding-right: 30px">
+                    <div class="row well">
+                        <div class="col-sm-4"> 
+                            <div class="text-center">
+                                <img src={{photourl}} style="width: 185px;height: 145px" class="img-thumbnail">
+                                <button type="button" class="btn btn-primary" style="width: 120px;margin-top: 10px">フォロー</button>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-8" style="padding-left: 20px">
+                            <div>
+                                <h4 class="text-primary"><b>事業者名</b></h4>
+                                <p>ユーザーID：○○○○○○○○○○</p>
+                                <p>&nbsp;</p>
+                                <p>実績　　　　　：　○○件</p>
+                                <p>評価　　　　　：　<b style="color: #d9d904">★★★★★★</b></p>
+                                <p>ビデオチャット：　対応可能</p>
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="nav nav-tabs tab-1"> 
+                            <li class="tab-style-grey active">
+                                <a ng-click="clickprofiletab()" data-toggle="tab"><b><u>プロフィール</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab"><b><u>評価・実績</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab"><b><u>希望内容</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab"><b><u>募集案件</u></b></a>
+                            </li>                             
+                        </ul>
+                    </div>
+                    <ng-include src="inlcudehtmlpath"></ng-include>
+                </div>
+                <div class="col-sm-2" style="padding-left: 5px;padding-right: 0px">
+                    <button type="button" class="btn btn-success" style="box-shadow-type-0: outside;box-shadow: 1px 1px 0px 2px #068410;padding-left: 20px;padding-right: 20px;margin-bottom: 20px" ng-click="clickeditprofile()">プロフィールを編集</button>
+                    <h4 class="h1-left-border text-primary"><strong>実績サマリー</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>評価　　　　　　　　○○○</b></h6>
+                        <h6><b>評価数　　　　　　　○○○</b></h6>
+                        <h6><b>良い評価率　　　　　○○○</b></h6>
+                    </div>                     
+                    <h4 class="h1-left-border text-primary"><strong>認証状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>本人確認　　　　　　　OK</b></h6>
+                        <h6><b>機密保持　　　　　　　NG</b></h6>
+                        <h6><b>電話確認　　　　　　　OK</b></h6>
+                        <h6><b>士チェック　　　　　　OK</b></h6>
+                    </div>
+                    <h4 class="h1-left-border text-primary"><strong>仕事状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6><b>取得時期　　　　　　　即時</b></h6>
+                        <h6><b>最終ログイン　　　○○日前</b></h6>
+                    </div>
+                </div>
+            </div>
+        </div>

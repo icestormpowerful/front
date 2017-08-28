@@ -1,0 +1,265 @@
+<div class="jumbotron" style="background-image: url(./resources/img/logo3.png); display: block;
+  background-repeat: no-repeat; background-size: cover; background-position: top center;overflow:hidden;width:100%">
+  <div style="text-align:center">
+	    <p style="margin-bottom: 6px; font-size: 45px; font-weight: 600; color: #FFFFFF; text-align: center;">助成金・補助金検索</p> 
+      <button type="button" class="btn btn-success btn-lg">自動検索</button>
+      <button type="button" class="btn btn-success btn-lg" ng-click="clickgoF16()">手動検索</button>
+      <button type="button" class="btn btn-success btn-lg">士業検索</button>
+      <button type="button" class="btn btn-success btn-lg">士業掲示板</button>
+	    <p style="margin-bottom: 6px; font-size: 45px; color: #FFFFFF; font-weight: 600; text-align: center;">仕事を依頼・提案管理</p> 
+      <button type="button" class="btn btn-primary btn-lg" id="operator_collection" ng-click="clicktodirectGscreen()">募集する</button>
+      <button type="button" class="btn btn-primary btn-lg" id="operator_collection">士業提案</button>
+
+      <!-- 보조금 및 교부 금 검색
+       자동 검색 
+       수동 검색 
+       사업자 검색 
+       일을 늘리는 
+       시책 등록 
+       전문가 업무 요청 
+       문제점 도움 배 -->
+  </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4" ng-repeat="advertitem in advertitemlist">
+            <div class="advertisement">
+                <div class="advert_img">
+                    <img ng-src={{advertitem.url}} style="width:100%;">
+                </div>
+                <div class="advert_text">
+                    <p style="  margin-top: 1%;font-size: 15px; font-weight: 600; text-align: center;">テキストテキストテキストテキストテ</p> 
+                </div>
+            </div>
+	    </div>
+    </div>
+
+    <!-- subtitle-text -->
+    <div class="row" style="margin-top:100px;">
+       <strong class="subtitle_big">SAMURAI ガイド</strong><strong class="subtitle_small">SAMURAIはこんなサービスを提供しています。</strong>
+  	</div>
+
+  	<div class="row">
+       <div class="subtitle_big" style="width: 50px;border-bottom: 3px solid #256ab6; float: left;"></div>
+       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+  	</div>
+
+  	<!-- site service -->
+  	<div class="row">
+        <div class="col-sm-4">
+            <div style="margin-left:2px; margin-right:2px;">
+                <div>
+                    <img src="./resources/img/first.png" style="width:100%;">
+                </div>
+                <div>
+                    <p class="service_title">
+                        SAMURAI とは
+                    </p>
+                    <p class="service_content">
+                        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                    </p>
+            	</div>
+            </div>
+    	</div>
+
+        <div class="col-sm-4">
+            <div style="margin-left:2px; margin-right:2px;">
+                <div>
+                    <img src="./resources/img/second.png" style="width:100%;">
+                </div>
+                <div>
+                    <p class="service_title">
+                        どうやってマツチングするの?
+                    </p>
+                    <p class="service_content">
+                        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                    </p>
+            	</div>
+            </div>
+    	</div>
+
+        <div class="col-sm-4">
+            <div style="margin-left:2px; margin-right:2px;">
+                <div>
+                    <img src="./resources/img/third.png" style="width:100%;">
+                </div>
+                <div>
+                    <p class="service_title">
+                        どうやって便うの？
+                    </p>
+                    <p class="service_content">
+                        テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+                    </p>
+            	</div>
+            </div>
+    	</div>
+    </div>
+
+    <!-- subtitle-text -->
+    <div class="row" style="margin-top:100px;">
+       <strong class="subtitle_big">ご利用者様の声</strong><strong class="subtitle_small">SAMURAIを活を用頂いたお客様の声を一部紹介します。</strong>
+  	</div>
+
+  	<div class="row">
+       <div class="subtitle_big" style="width: 50px;border-bottom: 3px solid #256ab6; float: left;"></div>
+       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+  	</div>
+
+  	<!-- rating-site -->
+  	<div class="row" style="margin-top:50px;">
+		<div class="col-sm-4" ng-repeat="ratingitem in ratingitemlist">
+            <div style="border:1px solid #e1e1e1">
+                <div>
+                    <img ng-src={{ratingitem.url}} style="width:100%;">
+                </div>
+                <div style="margin-top:10px; margin-left:10px; margin-right:10px;">
+                	<p class="service_name">
+                        {{ratingitem.name}}
+                    </p>
+                    <p class="service_title">
+                        {{ratingitem.title}}
+                    </p>
+                    <p style="font-size: 15px; font-weight: 600;">
+                        {{ratingitem.content}}
+                    </p>
+            	</div>
+            </div>
+	    </div>
+    </div>
+
+    <!-- button -->
+    <div class="row" style="margin-top:50px">
+	     <div class="col-sm-3"></div>
+	     <div class="col-sm-6">
+	        <button class="btn btn-success" style="width: 100%;height: 55px; font-weight:bold; font-size: 16px;">士業の活用事例をもつと見る</button>
+	     </div>
+	     <div class="col-sm-3"></div>
+	</div>
+
+
+	<!-- subtitle-text -->
+    <div class="row" style="margin-top:70px;">
+       <strong class="subtitle_big">現在進んでいる案件一覧</strong><strong class="subtitle_small">様々なタイプの案件があります。</strong>
+  	</div>
+
+  	<div class="row">
+       <div class="subtitle_big" style="width: 50px;border-bottom: 3px solid #256ab6; float: left;"></div>
+       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+  	</div>
+
+  	<!-- measure -->
+  	<div class="row" style="margin-top:50px">
+	    <div ng-repeat="measureitem in measureitemlist1">
+	        <div class="col-sm-6" style="padding-left: {{measureitem.leftmargin}}px;padding-right: {{measureitem.rightmargin}}px;">
+	        	<div style="border:1px solid #e1e1e1;">
+	        		<div style="margin-left: 15px;">
+			        	<div class="row">
+				            <div class = "col-sm-3" style="margin-top: 15px;">
+				            	<img ng-src={{measureitem.url}} style="width:100%;">
+				            </div>
+				            <div class="col-sm-9" style="margin-top: 13px;">
+				              <div><p class="measure_text">{{measureitem.title}}</p></div>
+				              <div><p class="measure_text">登録期間:{{measureitem.starttime}}/募集時期:{{measureitem.increasetime}}/金額:{{measureitem.money}}</p>
+				              </div>
+				              <div><p style="font-size: 15px;">{{measureitem.content}}</p></div>
+				            </div>
+			            </div>
+			            <div class="row" style="margin-top: 5px;margin-bottom: 25px;">
+				            <div class="col-sm-12">
+				              <button class = "btn btn-warning" style="width: 96px;height: 29px;border-radius: 0;">提案を検討</button>
+				              <button class = "btn" style="width: 96px;height: 29px;border-radius: 0;">興味あリ</button>
+				              <button class = "btn" style="width: 96px;height: 29px;border-radius: 0;">非表示</button>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+    <div class="row" style="margin-top:30px">
+	    <div ng-repeat="measureitem in measureitemlist2">
+	        <div class="col-sm-6" style="padding-left: {{measureitem.leftmargin}}px;padding-right: {{measureitem.rightmargin}}px;">
+	        	<div style="border:1px solid #e1e1e1;">
+	        		<div style="margin-left: 15px;">
+			        	<div class="row">
+				            <div class = "col-sm-3" style="margin-top: 15px;">
+				            	<img ng-src={{measureitem.url}} style="width:100%;">
+				            </div>
+				            <div class="col-sm-9" style="margin-top: 13px;">
+				              <div><p class="measure_text">{{measureitem.title}}</p></div>
+				              <div><p class="measure_text">登録期間:{{measureitem.starttime}}/募集時期:{{measureitem.increasetime}}/金額:{{measureitem.money}}</p>
+				              </div>
+				              <div><p style="font-size: 15px;">{{measureitem.content}}</p></div>
+				            </div>
+			            </div>
+			            <div class="row" style="margin-top: 5px;margin-bottom: 25px;">
+				            <div class="col-sm-12">
+				              <button class = "btn btn-warning" style="width: 96px;height: 29px;border-radius: 0;">提案を検討</button>
+				              <button class = "btn" style="width: 96px;height: 29px;border-radius: 0;">興味あリ</button>
+				              <button class = "btn" style="width: 96px;height: 29px;border-radius: 0;">非表示</button>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+
+    <!-- button -->
+    <div class="row" style="margin-top:50px">
+	     <div class="col-sm-3"></div>
+	     <div class="col-sm-6">
+	        <button class="btn btn-success" style="width: 100%;height: 55px; font-weight:bold; font-size: 16px;">士業の活用事例をもつと見る</button>
+	     </div>
+	     <div class="col-sm-3"></div>
+	</div>
+
+	<div class="row" style="margin-top:50px;margin-bottom:50px">
+		<!-- latest news -->
+		<div class="col-sm-6" style="padding-right:50px">
+			<!-- subtitle-text -->
+	        <div class="row">
+	        	<strong class="subtitle_big">最新のお知らせ</strong>
+  			</div>
+		  	<div class="row">
+		       <div class="subtitle_big" style="width: 50px;border-bottom: 3px solid #256ab6; float: left;"></div>
+		       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+		  	</div>
+
+		  	<!-- news -->
+		  	<div class="row">
+             <ul style="list-style-type: none;padding-left:0px">
+                <li style="margin-top:12px; padding-bottom:12px;border-bottom: 1px solid #e1e1e1;" ng-repeat="newsitem in newsitemlist">{{newsitem.date}}<a href="" style="margin-left:20px;">{{newsitem.content}}</a></li>
+             </ul>
+           </div>
+	    </div>
+
+	    <!-- facebook -->
+	    <div class="col-sm-6" style="padding-left:50px">
+	    	<!-- subtitle-text -->
+	        <div class="row">
+	        	<strong class="subtitle_big">FACEBOOK</strong>
+  			</div>
+		  	<div class="row">
+		       <div class="subtitle_big" style="width: 50px;border-bottom: 3px solid #256ab6; float: left;"></div>
+		       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+		  	</div>
+	    </div>
+	</div>
+</div>
+
+<!-- subtitle-text -->
+<div class="row" style="background-color: #f6f6f6;">
+	<div class="container">
+	    <div class="row" style="margin-top:50px;">
+	    	<strong class="subtitle_big">SAMURAI とは</strong>
+			</div>
+	  	<div class="row">
+	       <div class="subtitle_small" style="width: 100%;border-bottom: 3px solid #e1e1e1;"></div>
+	  	</div>
+	  	<div class="row" style="margin-top:20px;margin-bottom:60px;">
+	       <p style="font-size: 15px;font-weight: 600;">テキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキテキストテキストテキストテキストテキキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテキストテキストテキテ</p>
+	  	</div>
+	</div>
+</div>

@@ -1,0 +1,56 @@
+<div class="row">
+    <p style="color:rgb(44,130,218);font-size:30px;">{{subsidylist[displaydetailindex].name}}</p>
+    <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+        <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidylist[displaydetailindex].id,0)">提案を検討</button>
+        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidylist[displaydetailindex].id,1)">興味あり</button>
+        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidylist[displaydetailindex].id,2)">非表示</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-9" style="padding-right: 30px">
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>登録機関</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].register_insti_detail}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象地域</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].region}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>更新日</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].update_date}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>施策名</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].name_serve}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>目的</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].target}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象者の詳細</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].info}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援内容・支援規模</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].support_content}}<br/>{{subsidylist[displaydetailindex].support_scale}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>募集期間</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].subscript_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象期間</b></p>
+            <p style="margin-top: 10px">{{subsidylist[displaydetailindex].object_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>pdfデータ</b></p>
+            <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinC3screen(subsidylist[displaydetailindex].register_pdf)"><a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+        </div>
+    </div>
+</div>
+<div class="row text-center">
+    <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-right :10px;width:10%" ng-click="selectsubsidy(subsidylist[displaydetailindex].id)">選択する</button>
+    <button style="width:10%" class="btn btn-default btn-style-shadow-grey" type="button" ng-click="backtoListscreen()">戻る</button>
+</div>

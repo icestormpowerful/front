@@ -1,0 +1,192 @@
+<div class="container">
+            <div class="row">
+                <label class="container-header-pagetext">
+                <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;仕事管理</label>
+            </div>
+            <div class="row">
+                <h1><strong>仕事管理</strong></h1>
+            </div>
+            <div class="row">
+                <div class="btn-group"> 
+                    <button type="button" class="btn  btn-group-style-blue">依頼・提案・発注</button>                     
+                    <button type="button" class="btn  btn-group-style-blue">マッチング案件</button>
+                    <button type="button" class="btn  btn-group-style-blue">終了した案件</button>
+                </div>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 20px;margin-bottom: 20px">
+                <div class="col-sm-6">
+                    <h5 style="font-size: 13px">○○/○○</h5> 
+                </div>
+                <div class="col-sm-6">
+                    <h5 class="col-sm-3" style="font-size: 13px">並び替え：</h5>
+                    <div class="col-sm-3">
+                        <select class="form-control"> 
+                            <option>1</option>                             
+                            <option>2</option>                             
+                            <option>3</option>                             
+                        </select>
+                    </div>
+                    <h5 class="col-sm-3" style="font-size: 13px">表示件数：</h5>
+                    <div class="col-sm-3">
+                        <select class="form-control"> 
+                            <option>1</option>                             
+                            <option>2</option>                             
+                            <option>3</option>                             
+                        </select>
+                    </div>                     
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+                    <div class="div-style-blue" style="margin-top: 0px">
+                        <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                        <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                        <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+                    </div>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                            <strong>マイページトップ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                            <strong>プロフィール管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                            <strong>会員情報管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                            <strong>仕事管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                            <strong>メッセージ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                            <strong>保存リスト</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                            <strong>各種認証設定</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                            <strong>支払い管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                            <strong>アフィリエイト管理</strong>
+                        </button></p>
+                </div>
+                <div style="padding-right: 30px" class="col-sm-10">
+                    <div class="row" style="margin-bottom: 20px">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #ddd;"> 
+                                    <li class="tab-style-grey active">
+                                        <a href="#tab1" data-toggle="tab"> <b> <u>募集中</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab2" data-toggle="tab"> <b> <u>依頼中</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab3" data-toggle="tab"><b> <u>受けた提案</u></b></a>
+                                    </li>                                     
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                     
+                    <div class="row">
+                        <table class="table table-bordered table-hover" style="margin-bottom: 20px"> 
+                            <thead class="div-style-blue2"> 
+                                <tr style="background-color: #428edc;color: #ffffff"> 
+                                    <th style="width: 20%">日時</th> 
+                                    <th style="width: 40%">タイトル</th> 
+                                    <th style="width: 20%">士業名</th>
+                                    <th style="width: 20%">メッセージ</th> 
+                                </tr>                                 
+                            </thead>                             
+                            <tbody> 
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div style="color: #ff0000">返信あり</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td>○○年○○月○○日</td> 
+                                    <td style=" ">○○○○（施策名）<br></td>
+                                    <td>○○○○</td>
+                                    <td>
+                                        <div>依頼送信済み</div>
+                                        <div>（残り9回）</div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <ul class="pagination"> 
+                                <li>
+                                    <a href="#">«</a>
+                                </li>                                 
+                                <li class="active">
+                                    <a href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">2</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">3</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">»</a>
+                                </li>                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

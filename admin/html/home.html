@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="row" style="margin-top:150px">
+		<strong>管理者メニュー：ログイン</strong>
+	</div>
+	<div class="row" style="margin-top:50px">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+			<p style="margin-left:0px;">ＩＤ・パスワードを入力してください</p>
+			<form class="form-horizontal">
+				<div class="form-group" style="margin-top:30px;">
+			        <p class="col-sm-2">ID</p>
+			        <div class="col-sm-5">
+			          <input class="form-control" id="focusedInput" type="text" placeholder="ID" ng-model="adminid">
+			        </div>
+			    </div>
+			    <div class="form-group" style="margin-top:30px;">
+			        <p class="col-sm-2">パスワード</p>
+			        <div class="col-sm-5">
+			          <input class="form-control" id="focusedInput" type="password" placeholder="パスワード" ng-model="adminpassword">
+			        </div>
+			    </div>
+			    <div class="form-group" style="margin-top:30px;">
+			        <div class="col-sm-2"></div>
+			        <div class="col-sm-5">
+			          <input type="submit" name="submit" class="submit-blue-btn" value="ログイン" ng-click="submitLogin()">
+			        </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+</div>

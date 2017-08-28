@@ -1,0 +1,264 @@
+﻿
+<div class="container">
+    <div class="row">
+        <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+        <img src="./assets/img/top_bar_2.png" />
+    </div>
+    <div class="row" style="margin-top: 20px;margin-bottom: 20px">
+        <h1><strong>助成金・補助金の手動検索</strong></h1>
+        <p style="font-size: 14px;margin-top: 20px;"><b>各省庁が公開している助成金・補助金の手動検索が行えます。</b></p>
+    </div>
+    <!--
+    <div class="row div-style-grey" style="margin-top: 20px;margin-bottom: 20px">
+        <div class="col-sm-6">
+            <h5 style="font-size: 13px">○○/○○</h5>
+        </div>
+        <div class="col-sm-6">
+            <h5 class="col-sm-3" style="font-size: 13px">並び替え：</h5>
+            <div class="col-sm-3">
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+            <h5 class="col-sm-3" style="font-size: 13px">表示件数：</h5>
+            <div class="col-sm-3">
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    -->
+    <div class="row">
+        <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+            <div style="margin-bottom: 20px;text-align: left">
+                <h3 class="h1-left-border"> <b style="font-size:22px;color: #337ab7;">リスト一覧</b></h3>
+            </div>
+            <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="search_Subsidy_type(0)">
+                    <strong>提案を検討リスト</strong>
+                </button></p>
+            <p style="font-size: 14px"> <button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="search_Subsidy_type(1)">
+                    <strong>興味リスト</strong>
+                </button></p>
+            <p style="font-size: 14px"> <button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="search_Subsidy_type(2)">
+                    <strong>非表示リスト</strong>
+                </button></p>
+        </div>
+        <div class="col-sm-10">
+            <div class="row div-style-grey" style="margin-top: 0px;margin-bottom: 40px">
+                <h3 class="h1-left-border"> <b>カテゴリー</b></h3>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;">
+                    <tbody>
+                    <tr><td rowspan={{gettablerowspan(4,downeddisplaycategorystring)}} class="text-muted div-style-blue2" style="font-size: 12px;width: 20%"></td></tr>
+                    <tr ng-repeat="categoryitem in downeddisplaycategorystring" ng-if="!(($index) % 4)">
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="checkbox" ng-checked="bigcategoryexist($index,categoryitem.category)"
+                                   ng-click="bigcategorytoggle($index,categoryitem.category)" ng-show="downeddisplaycategorystring[$index]">
+                            {{categoryitem.category}}</input>
+                        </td>
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="checkbox"
+                                   ng-checked="bigcategoryexist($index+1,downeddisplaycategorystring[$index+1].category)"
+                                   ng-click="bigcategorytoggle($index+1,downeddisplaycategorystring[$index+1].category)"
+                                   ng-show="downeddisplaycategorystring[$index+1]">
+                            {{downeddisplaycategorystring[$index+1].category}}</input>
+                        </td>
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="checkbox"
+                                   ng-checked="bigcategoryexist($index+2,downeddisplaycategorystring[$index+2].category)"
+                                   ng-click="bigcategorytoggle($index+2,downeddisplaycategorystring[$index+2].category)"
+                                   ng-show="downeddisplaycategorystring[$index+2]">
+                            {{downeddisplaycategorystring[$index+2].category}}</input>
+                        </td>
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="checkbox"
+                                   ng-checked="bigcategoryexist($index+3,downeddisplaycategorystring[$index+3].category)"
+                                   ng-click="bigcategorytoggle($index+3,downeddisplaycategorystring[$index+3].category)"
+                                   ng-show="downeddisplaycategorystring[$index+3]">
+                            {{downeddisplaycategorystring[$index+3].category}}</input>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                <h3 class="h1-left-border"> <b>カテゴリー詳細</b></h3>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;" ng-repeat="subcategory in selectedcategorystring"
+                       ng-init="categoryparentindex = $index">
+                    <tbody>
+                    <tr>
+                        <td rowspan={{gettablerowspan(4,downeddisplaycategorystring[subcategory.beforeindex].detail)}}
+                            class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>{{subcategory.category}}</b></td>
+                    </tr>
+                    <tr ng-repeat="subcategoryitem in downeddisplaycategorystring[subcategory.beforeindex].detail" ng-if="!(($index) % 4)">
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index]"
+                                   ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index])"
+                                   ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index])">
+                            {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index]}}
+                        </td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1]"
+                                   ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1])"
+                                   ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1])">
+                            {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+1]}}
+                        </td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2]"
+                                   ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2])"
+                                   ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2])">
+                            {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+2]}}
+                        </td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="checkbox" ng-show="downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3]"
+                                   ng-checked="subcategoryexist(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3])"
+                                   ng-click="subcategorytoggle(categoryparentindex,downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3])">
+                            {{downeddisplaycategorystring[subcategory.beforeindex].detail[$index+3]}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                <h3 class="h1-left-border"> <b>取得可能金額</b></h3>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;">
+                    <tbody>
+                    <tr>
+                        <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>&nbsp;</b></td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="radio" value="0" ng-model="selectedavailablebalance">        100万円以下
+                        </td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="radio" value="1" ng-model="selectedavailablebalance">        100万〜500万円以下
+                        </td>
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="radio" value="2" ng-model="selectedavailablebalance">        500万〜1000円万以下
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="radio" value="3" ng-model="selectedavailablebalance">        1000万〜5000万以下
+                        </td>
+                        <td style="font-size: 12px;width: 20%">
+                            <input class="control-label" type="radio" value="4" ng-model="selectedavailablebalance">        5000万〜1億円以下
+                        </td>
+                        <td style="font-size: 12px">
+                            <input class="control-label" type="radio" value="5" ng-model="selectedavailablebalance">        1億円以上
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                <h3 class="h1-left-border"> <b>対象地域</b></h3>
+            </div>
+            <div class="row" style="margin-top: 40px;margin-bottom: 40px">
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <md-select placeholder="都道府県を選択してください" ng-model="selectregionitem.text"
+                                   style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:20px;"
+                                   ng-repeat="selectregionitem in selectedregionstring">
+                            <md-option ng-value="regionitem.region" style="max-width:320px;"
+                                       ng-repeat="regionitem in downeddisplayregionstring">{{regionitem.region}}</md-option>
+                        </md-select>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <md-select placeholder="府省庁を選択してください" ng-model="selectministryitem.text" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:20px;"
+                                   ng-repeat="selectministryitem in selectedministrystring">
+                            <md-option ng-value="ministryitem.ministry" style="max-width:320px;"
+                                       ng-repeat="ministryitem in downeddisplayministrystring">{{ministryitem.ministry}}</md-option>
+                        </md-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-4 text-center" ng-click="clickaddregion()">
+                        <a>複数選択をする</a>
+                    </label>
+                    <label class="col-sm-4 text-center" ng-click="clickaddministry()">
+                        <a>複数選択をする</a>
+                    </label>
+                </div>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                <h3 class="h1-left-border"> <b>費用を入力する</b></h3>
+            </div>
+            <div class="row">
+                <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;">
+                    <tbody>
+                        <tr>
+                            <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"></td>
+                            <td style="font-size: 12px">
+
+                                <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                                    <div class="col-sm-2">
+                                        <input class="control-label" type="checkbox" value="" ng-model="F1pricesetting.document_business_check">    書類代行費用
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <input type="number" class="form-control" placeholder="金額"
+                                               ng-disabled="!F1pricesetting.document_business_check" ng-model="F1pricesetting.document_business_price">
+                                    </div>
+
+                                   <div class="col-sm-3">
+                                       <select class="form-control" ng-disabled="!F1pricesetting.document_business_check"
+                                               ng-model="F1pricesetting.document_business_type">
+                                           <option value="0">円</option>
+                                           <option value="1">%</option>
+                                       </select>
+                                   </div>
+
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-2">
+                                        <input class="control-label" type="checkbox" value="" ng-model="F1pricesetting.request_business_check">    申請代行費用
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="number" class="form-control" placeholder="金額"
+                                               ng-disabled="!F1pricesetting.request_business_check" ng-model="F1pricesetting.request_business_price">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" ng-disabled="!F1pricesetting.request_business_check"
+                                                ng-model="F1pricesetting.request_business_type">
+                                            <option value="0">円</option>
+                                            <option value="1">%</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-2">
+                                        <input class="control-label" type="checkbox" value="" ng-model="F1pricesetting.deposit_check">    着手金
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input type="number" class="form-control" placeholder="金額"
+                                               ng-disabled="!F1pricesetting.deposit_check" ng-model="F1pricesetting.deposit_money">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" ng-disabled="!F1pricesetting.deposit_check"
+                                                ng-model="F1pricesetting.deposit_type">
+                                            <option value="0">円</option>
+                                            <option value="1">%</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row" style="text-align: center">
+                <button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="searchSubsidy()">設定する</button>
+            </div>
+        </div>
+    </div>
+</div>

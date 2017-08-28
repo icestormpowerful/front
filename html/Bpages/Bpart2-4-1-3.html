@@ -1,0 +1,25 @@
+                        <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #ddd;"> 
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="selectb24screen(1)"><b><u>概要</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="selectb24screen(2)"><b><u>提案状況</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey active">
+                                <a data-toggle="tab" ng-click="selectb24screen(3)"><b><u>質問掲示板</u></b></a>
+                            </li>                             
+                        </ul>
+<div style="width:100%">
+                            <p style="background-color: #428edc;color: #ffffff;margin-top: 15px;padding: 10px 5px 10px 10px;">現在の提案状況</p>
+                        </div>
+                        <div class="col-sm-12 div-style-white" ng-repeat="subsidyitem in b6sdataarray">
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <p style="font-size: 14px">{{subsidyitem.message}}</p>
+                                </div>                                 
+                            </div>
+                            <div class="col-sm-2">
+                                <img src={{return_imageid(subsidyitem.image)}} style="width: 95px;margin-top: 10px" class="img-thumbnail">
+                            </div>                             
+                        </div>
+                  

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>管理画面</title>
+
+
+<script type="text/javascript" src="resources/downloadjs/angular1.6.1.js"></script>
+<script type="text/javascript" src="resources/downloadjs/angular-animate.js"></script>
+<script type="text/javascript" src="resources/downloadjs/angular-resource.js"></script>
+<script type="text/javascript" src="resources/downloadjs/angular-route.js"></script>
+<script type="text/javascript" src="resources/downloadjs/angular-sanitize.js"></script>
+<script type="text/javascript" src="resources/downloadjs/angular-translate.js"></script>
+<script type="text/javascript" src="resources/downloadjs/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="resources/downloadjs/ng-file-upload-shim.min.js"></script>
+<script type="text/javascript" src="resources/downloadjs/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/home.js"></script>
+<!-- mastermain -->
+<script type="text/javascript" src="js/master/main.js"></script>
+<script type="text/javascript" src="js/master/csv.js"></script>
+<script type="text/javascript" src="js/master/uploadfile.js"></script>
+<!-- masterbalance -->
+<script type="text/javascript" src="js/master/balancesale.js"></script>
+<script type="text/javascript" src="js/master/balancedepwith.js"></script>
+<script type="text/javascript" src="js/master/balancepayplan.js"></script>
+<script type="text/javascript" src="js/master/balancedata.js"></script>
+<!-- mastersystem -->
+<script type="text/javascript" src="js/master/profile.js"></script>
+<script type="text/javascript" src="js/master/employeepart.js"></script>
+<script type="text/javascript" src="js/master/loginhistory.js"></script>
+<script type="text/javascript" src="js/master/edithistory.js"></script>
+<!-- employeetop -->
+<script type="text/javascript" src="js/employee/top/main.js"></script>
+<script type="text/javascript" src="js/employee/top/csv.js"></script>
+<script type="text/javascript" src="js/employee/top/uploadfile.js"></script>
+<script type="text/javascript" src="js/employee/top/email.js"></script>
+<!-- employeebalance -->
+<script type="text/javascript" src="js/employee/balance/sale.js"></script>
+<script type="text/javascript" src="js/employee/balance/depwith.js"></script>
+<script type="text/javascript" src="js/employee/balance/payplan.js"></script>
+<script type="text/javascript" src="js/employee/balance/data.js"></script>
+<!-- employeesystem -->
+<script type="text/javascript" src="js/employee/system/advertisement.js"></script>
+<script type="text/javascript" src="js/employee/system/suggest.js"></script>
+<script type="text/javascript" src="js/employee/system/industry.js"></script>
+<script type="text/javascript" src="js/employee/system/tag.js"></script>
+<script type="text/javascript" src="js/employee/system/category.js"></script>
+<script type="text/javascript" src="js/employee/system/payinfo.js"></script>
+<script type="text/javascript" src="js/employee/system/notification.js"></script>
+<script type="text/javascript" src="js/employee/system/blog.js"></script>
+<!-- employeecustomerinfo -->
+<script type="text/javascript" src="js/employee/customerinfo/agencylist.js"></script>
+<script type="text/javascript" src="js/employee/customerinfo/clientlist.js"></script>
+<script type="text/javascript" src="js/employee/customerinfo/matchinglist.js"></script>
+<!-- employeecustomersupport -->
+<script type="text/javascript" src="js/employee/customersupport/inquiry.js"></script>
+<script type="text/javascript" src="js/employee/customersupport/contact.js"></script>
+<script type="text/javascript" src="js/employee/customersupport/identify.js"></script>
+<script type="text/javascript" src="js/employee/customersupport/identifyphrase.js"></script>
+<script type="text/javascript" src="js/employee/customersupport/violator.js"></script>
+<script type="text/javascript" src="js/employee/customersupport/violatorphrase.js"></script>
+<!-- employeedatamanagement -->
+<script type="text/javascript" src="js/employee/data/subsidylist.js"></script>
+<script type="text/javascript" src="js/employee/data/subsidyagency.js"></script>
+<script type="text/javascript" src="js/employee/data/subsidyadd.js"></script>
+<script type="text/javascript" src="js/employee/data/subsidyedit.js"></script>
+<script type="text/javascript" src="js/employee/data/document.js"></script>
+<script type="text/javascript" src="js/employee/data/registration.js"></script>
+<!-- employeeother -->
+<script type="text/javascript" src="js/employee/other/affiliate.js"></script>
+<script type="text/javascript" src="js/employee/other/payment.js"></script>
+<script type="text/javascript" src="js/employee/other/companies.js"></script>
+<script type="text/javascript" src="js/employee/other/data.js"></script>
+<script type="text/javascript" src="js/employee/other/seminardata.js"></script>
+<script type="text/javascript" src="js/employee/other/seminarapplicant.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<div class="site">
+<header ng-controller="HeaderCtrl">  
+<div  ng-include="header_path"></div>                  
+</header>
+
+<body>
+	<div ng-view></div>
+</body>
+</div>
+
+</html>

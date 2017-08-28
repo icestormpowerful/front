@@ -1,0 +1,96 @@
+<div class="row">
+    <label class="container-header-pagetext">
+        <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;助成金・補助金の検索</label>
+    </div>
+            <div class="row">
+                <h1><strong>対応可能案件</strong></h1>
+                <p>あなたの対応可能な案件を企業に直接アプローチして、申請代行の業務を受けられる画面となります。この施策をいくらで受けられるかも登録しておきましょう！
+この金額は企業から検索した時にも表示されます。</p>
+            </div>
+            
+<div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   対応可能施策情報の選択</b></p>
+</div>
+<div class="row" style="margin-left: 0px;margin-bottom: 20px">
+    <p class="text-primary" style="font-size: 25px;font-weight: 600;">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].name}}</p>
+    <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+    <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+    <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>登録機関</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].register_insti_detail}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象地域</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].region}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>更新日</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].update_date}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>施策名</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].name_serve}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>目的</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].target}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象者の詳細</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].info}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援内容・支援規模</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].support_content}}<br/>{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].support_scale}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>募集期間</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].subscript_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象期間</b></p>
+            <p style="margin-top: 10px">{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].object_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>pdfデータ</b></p>
+            <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinC3screen(C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].register_pdf)"><a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+        </div>
+    </div>
+</div>
+<div class="row div-style-grey">
+    <h3 class="h1-left-border"> <b>見積もり内容</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                <tbody> 
+                    <tr> 
+                        <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <p style="color: #006abc;"><b>見積もり内容</b></p>
+                        </td>                                             
+                        <td style="font-size: 12px">
+                            <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                                <div class="col-sm-12" ng-init="otherarray = initpdfarrayinC3screen(C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].other_money_sub)">
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">書類代行費用 &nbsp;&nbsp;&nbsp;&nbsp; {{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].document_business_price}}&nbsp;&nbsp;{{C6getmoneytype(C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].document_business_type)}}</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">申請代行費用 &nbsp;&nbsp;&nbsp;&nbsp; {{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].request_business_price}}&nbsp;&nbsp;{{C6getmoneytype(C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].request_business_type)}}</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">着手金&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].deposit_money}}&nbsp;&nbsp;円</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">その他費用&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;合計&nbsp;&nbsp;{{C5availablesubsidytotalarray[C6subsidy_indexarray.parent].detail[C6subsidy_indexarray.subindex].other_money}}&nbsp;&nbsp;円</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 130px;"  ng-repeat="otheritem in otherarray" >{{otheritem.comment}}(内訳)&nbsp;&nbsp;{{otheritem.balance}}&nbsp;&nbsp;円</p>
+                                </div>
+                            </div>                                                 
+                        </td>
+                    </tr>                                         
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row text-center">
+    <button type="button" class="btn btn-style-shadow-green btn-success" ng-click="C6back_button_press()">戻る</button>
+</div>

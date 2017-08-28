@@ -1,0 +1,56 @@
+<div class="container">
+    <!-- subtitle-text -->
+    <div class="row" style="margin-top:40px;">
+       <strong style="font-size: 26px;">ログインする</strong>
+       <strong class="subtitle_small" style="margin-left:60px;">会員登録がお済みてない方は、こちらから無料会員登録してください。</strong>
+    </div>
+
+    <div class="row" style="margin-top:10px;margin-bottom:50px;">
+       <div class="subtitle_small" style="width: 100%;border-bottom: 1px solid #404040;"></div>
+    </div>
+    <form class="form-horizontal">
+
+      <!-- email -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">メールアドレス</label>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <input class="form-control" id="focusedInput" type="text" placeholder="メールアドレス" ng-model="userid" required>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">パスワード</label>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <input class="form-control" id="focusedInput" type="password" placeholder="パスワード" ng-model="userpassword" required>
+        </div>
+      </div>
+
+      <!-- autologincheck -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-5">
+          <input type="checkbox"> 次回から自動的にログインする。<br>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <input type="submit" ng-click="submitLogin()" class="submitbutton btn" style="width:100%" value="ログインする"/>
+        </div>
+      </div>
+      <!-- label -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-8">
+          <label>パスワードを忘れた方は、こちらからパスワードの再設定を行ってください。</label>
+        </div>
+      </div>
+    </form>  
+</div>

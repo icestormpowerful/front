@@ -1,0 +1,51 @@
+                        <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #ddd;"> 
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="selectb24screen(1)"><b><u>概要</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey active">
+                                <a data-toggle="tab" ng-click="selectb24screen(2)"><b><u>提案状況</u></b></a>
+                            </li>                             
+                            <li class="tab-style-grey">
+                                <a data-toggle="tab" ng-click="selectb24screen(3)"><b><u>質問掲示板</u></b></a>
+                            </li>                             
+                        </ul>
+<h3>
+                            現在の提案数　○○件</h3>
+<table class="table table-bordered table-hover" style="margin-bottom: 20px"> 
+                            <thead class="div-style-blue2"> 
+                                <tr style="background-color: #428edc;color: #ffffff"> 
+                                    <th style="width: 20%">日時</th> 
+                                    <th style="width: 40%">タイトル</th> 
+                                    <th style="width: 20%">士業名</th>
+                                    <th style="width: 20%">メッセージ</th> 
+                                </tr>                                 
+                            </thead>                             
+                            <tbody> 
+                                <tr ng-repeat="subsidyitem in b5Sdataarray"> 
+                                    <td>{{subsidyitem.update_date}}</td> 
+                                    <td>{{subsidyitem.displayname}}<br></td>
+                                    <td>{{subsidyitem.result}}</td>
+                                    <td>{{subsidyitem.evaluate}}</td>                                     
+                                </tr>                         
+                            </tbody>
+                        </table>
+
+                    <div class="text-center" style="margin-top:20px;">
+                        <ul class="pagination"> 
+                            <li>
+                                <a href="#">«</a>
+                            </li>                             
+                            <li class="active">
+                                <a href="#">1                     <span class="sr-only">(current)</span></a>
+                            </li>                             
+                            <li>
+                                <a href="#">2</a>
+                            </li>                             
+                            <li>
+                                <a href="#">3</a>
+                            </li>                             
+                            <li>
+                                <a href="#">»</a>
+                            </li>                             
+                        </ul>
+                    </div>

@@ -1,0 +1,91 @@
+<div class="container">
+            <div class="row">
+                <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+                <img src="./assets/img/top_bar_2.png" />
+            </div>
+            <div class="row">
+                <h1><strong>別の案件を提案する</strong></h1>
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>テキストテテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</b></p>
+                <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #ddd;"> 
+                    <li class="tab-style-grey active">
+                        <a href="#tab1" data-toggle="tab"><b><u>プロフィール</u></b></a>
+                    </li>                     
+                    <li class="tab-style-grey">
+                        <a href="#tab2" data-toggle="tab"><b><u>評価・実績</u></b></a>
+                    </li>                     
+                </ul>
+                <p class="text-primary" style="margin-top: 20px;">タイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルタイトルルタイトルルタイトル</p>
+            </div>
+            <div class="row" id="F13tab2">
+                <div class="col-sm-10" style="padding-right: 30px">
+                    <div class="row">
+                        <table class="table table-bordered table-hover" style="margin-bottom: 20px">
+                            <thead class="div-style-blue2">
+                            <tr style="background-color: rgb(212,230,245);color: black;">
+                                <th style="width: 20%;height:50px;text-align:center;"><h5 class="text-primary"><b>実績</b></h5> <p>○○件<br>1ヶ月 : ○○<br>半年： ○○</p> </th>
+                                <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>評価</b></h5> <p>○○件<br>1ヶ月 : ○○<br>半年： ○○</p> </th>
+                                <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>評価</b></h5> <p>○○件<br>1ヶ月 : ○○<br>半年： ○○</p> </th>
+                                <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>評価</b></h5> <p>○○件<br>1ヶ月 : ○○<br>半年： ○○</p> </th>
+                                <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>評価</b></h5> <p>○○件<br>1ヶ月 : ○○<br>半年： ○○</p> </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="row" style="width:70%">
+                        <div class="col-sm-5 div-style-grey" style="padding-top:0;padding-bottom:0">
+                            <h6><b>○○○○○○○○○（依頼番号）</b></h6>
+                        </div>
+                        <div class="col-sm-6 div-style-grey" style="padding-top:0;padding-bottom:0;float:right">
+                            <h6><b>○○○○○○○○○○○○○○○○○○○○○○○（重視する点）</b></h6>
+                        </div>
+                        <div class="col-sm-12 div-style-yellow" style="padding-top:0;padding-bottom:0;margin-top:0">
+                            <h6><b>開始：{{F12displaysubsidylist[F12subsidy_index].post_date}}　
+                                終了：{{F12displaysubsidylist[F12subsidy_index].complete_date}}　
+                                希望納期：{{F12displaysubsidylist[F12subsidy_index].submit_date}}　　　</b></h6>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:30px">
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>依頼の目的 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <p style="font-size: 14px">{{F12displaysubsidylist[F12subsidy_index].content}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>重視する点 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <p style="font-size: 14px">{{F12displaysubsidylist[F12subsidy_index].main_point}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>重視する点 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <p style="font-size: 14px">{{F12displaysubsidylist[F12subsidy_index].sub_content}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 text-center" style="margin-top:30px">
+                            <button type="button" class="btn btn-style-shadow-grey" style="margin-bottom:10px;">戻る</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

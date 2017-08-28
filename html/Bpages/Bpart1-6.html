@@ -1,0 +1,74 @@
+<div class="container">
+            <div class="row">
+                <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+                <img src="./assets/img/top_bar_2.png" />
+            </div>
+            <div class="row">
+                <h1><strong>◯◯◯さんへ依頼している案件</strong></h1>
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>現在依頼している案件を表示しています。他の案件も依頼することも可能です。是非依頼してみましょう。</b></p>
+            </div>
+<div class="row">
+    <div>
+        <div class="row">
+            <table class="table"> 
+                <tbody>
+                    <tr ng-repeat="subsidyitem in C5availablesubsidyarray track by $index" ng-init="parentindex=$index" style={{C5gettableitemstyle(20*(C5pagination.current_page-1)+parentindex)}}> 
+                        <td style="border-top: 0px; border-bottom: 3px solid #dddddd">
+                            <h4 ng-if="subsidyitem.package_name.length!=0"><b>パッケージ名：{{subsidyitem.package_name}}</b></h4>
+                            <div class="row">
+                                
+                                <div class="col-sm-10">
+                                    <div class="col-sm-1" style="height:max-content;" ng-if="subsidyitem.package_name.length!=0">
+                                        <div style="position:relative;top:50%;margin-top:-12px;">
+                                            <input class="control-label" type="checkbox" ng-checked="C5existingsubsidy(20*(C5pagination.current_page-1)+parentindex)" 
+                                         ng-click="C5selectsubsidy(20*(C5pagination.current_page-1)+parentindex)">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-11">
+                                        <div class="row" ng-repeat="subsidyitemsub in subsidyitem.detail track by $index">
+                                            <div class="row" style="padding-left: 30px">
+                                                <div class="col-sm-2" style="margin-top: 20px">
+                                                    <input class="control-label" type="checkbox" style="margin-top:40px;" ng-if="subsidyitem.package_name.length==0" ng-checked="C5existingsubsidy(20*(C5pagination.current_page-1)+parentindex)"  ng-click="C5selectsubsidy(20*(C5pagination.current_page-1)+parentindex)">
+                                                    <img src={{return_imageid(subsidyitemsub.image_id)}} style="width: 100px;height:100px;">
+                                                </div>
+                                                <div class="col-sm-10" ng-click="C6view_subsidy_detail(20*(C5pagination.current_page-1)+parentindex,$index)">
+                                                    <h3 class="text-primary"><b>{{subsidyitemsub.name}}</b></h3>
+                                                    <h4 class="text-primary"><b>登録期間:</b>{{subsidyitemsub.register_insti_detail}}/<b>/募集時期:</b>{{subsidyitemsub.subscript_duration}}/<b>/金額:</b>{{displayamountstringC8[subsidyitemsub.acquire_budget]}}</h4> 
+                                                    <p style="font-size: 14px">{{subsidyitemsub.target}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-left: 0px;margin-bottom: 20px;padding-left: 30px">
+                                                <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidyitemsub.to_id,0)">提案を検討</button>
+                                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitemsub.to_id,1)">興味あり</button>
+                                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitemsub.to_id,2)">非表示</button>
+                                            </div> 
+                                            <div style="border-bottom: 1px solid #dddddd" ng-if="$index != subsidyitem.detail.length-1">   
+                                            </div>   
+                                        </div>    
+                                    </div>                   
+                                </div>
+                                <div class="col-sm-2" style="height:max-content;">
+                                    <div class="div-style-yellow text-center" style="float: right;position:relative;top:50%;margin-top:-85px;">
+                                        <p>書類代行　：{{subsidyitem.detail[0].calc_business}}円</p>
+                                        <p>着手金　：　{{subsidyitem.detail[0].deposit_money}}円</p>
+                                        <p>その他　：　{{subsidyitem.detail[0].other_money}}円</p>
+                                        <button class="btn btn-default btn-style-shadow-grey" type="button" ng-click="C5hidesubsidy(parentindex)">非表示</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <ul uib-pagination total-items="C5pagination.totalitem" max-size="3" ng-model="C5pagination.current_page" previous-text="前へ" next-text="次へ" first-text="最初" last-text="最後" direction-links="false" boundary-links="true" items-per-page="C5pagination.itemperpage" class="pagination-sm" boundary-link-numbers="true" rotate="true" ng-change="C5paginationchange()"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+    <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-bottom: 20px; margin-right :10px;width:10%" ng-click="editbalancetosubsidyC5()">適用する</button>
+</div>
+          
+</div>

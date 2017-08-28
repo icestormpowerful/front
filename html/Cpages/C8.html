@@ -1,0 +1,104 @@
+<div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   対応可能施策情報の選択</b></p>
+</div>
+<div class="row" style="margin-left: 0px;margin-bottom: 20px">
+    <p class="text-primary" style="font-size: 25px;font-weight: 600;">{{useraddsubsidy.subsidyname}}</p>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>登録期間</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.companyprovince}}&nbsp;&nbsp;&nbsp;{{useraddsubsidy.companycity}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>分類・カテゴリー</b></p>
+            <p style="margin-top: 10px" ng-repeat="categoryitem in useraddsubsidy.categoryitemlist">{{categoryitem.text}}&nbsp;&nbsp;&nbsp;{{categoryitem.subtext}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>タグ</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.subsidytag}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象地域</b></p>
+            <p style="margin-top: 10px" ng-repeat="regionitem in useraddsubsidy.regionlist">{{regionitem.province}}&nbsp;&nbsp;&nbsp;{{regionitem.city}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>施策名（サブ）</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.subsidynamesub}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>目的</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.purpose}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象者の詳細</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.targetinfo}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援内容</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.support}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>取得可能金額設定</b></p>
+            <p style="margin-top: 10px">{{displayamountstringC8[useraddsubsidy.availableamount-1]}}&nbsp;&nbsp;&nbsp;</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援規模</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.supportscale}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>募集期間</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.recruitment}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象期間</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.period}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>採択結果</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.adoption}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>お問い合わせ</b></p>
+            <p style="margin-top: 10px">{{useraddsubsidy.contact}}</p>
+        </div>
+<!--         <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>pdfデータ</b></p>
+            <p style="margin-top: 10px">{{getpdfstringC8()}}</p>
+        </div> -->
+    </div>
+</div>
+<div class="row div-style-grey">
+    <h3 class="h1-left-border"> <b>見積もり内容</b></h3>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <div class="row">
+            <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                <tbody> 
+                    <tr> 
+                        <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">
+                            <p style="color: #006abc;"><b>見積もり内容</b></p>
+                        </td>                                             
+                        <td style="font-size: 12px">
+                            <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                                <div class="col-sm-12">
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">書類代行費用 &nbsp;&nbsp;&nbsp;&nbsp; {{C7balancesetting.documentbalance}}&nbsp;&nbsp;{{C8getmoneytype(C7balancesetting.documentway)}}</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">申請代行費用 &nbsp;&nbsp;&nbsp;&nbsp; {{C7balancesetting.applybalance}}&nbsp;&nbsp;{{C8getmoneytype(C7balancesetting.applyway)}}</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">着手金&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{C7balancesetting.startbalance}}&nbsp;&nbsp;円</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 30px;">その他費用&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;合計&nbsp;&nbsp;{{getTotalotherbalanceC7()}}&nbsp;&nbsp;円</p> 
+                                    <p style="border-bottom: 1px solid rgb(189, 189, 189);padding-top: 10px;padding-bottom: 10px;padding-left: 130px;"  ng-repeat="otheritem in C7balancesetting.otherlist" >{{otheritem.comment}}(内訳)&nbsp;&nbsp;{{otheritem.balance}}&nbsp;&nbsp;円</p>
+                                </div>
+                            </div>                                                 
+                        </td>
+                    </tr>                                         
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row text-center" style="margin-bottom:20px;">
+    <button type="button" class="btn btn-style-shadow-green btn-success" style="margin-right:20px;" ng-click="C8addsubsidy()">登録する</button>
+    <button type="button" class="btn btn-style-shadow-grey btn-default" ng-click="C8bacttoC7()">戻る</button>
+</div>

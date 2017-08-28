@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <label class="container-header-pagetext">
+        <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会員情報管理</label>
+    </div>
+    <div class="row">
+        <h1><strong>会員情報管理</strong></h1>
+    </div>
+    <div class="row">
+        <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+            <div class="div-style-blue" style="margin-top: 0px">
+                <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+            </div>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                    <strong>マイページトップ</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                    <strong>プロフィール管理</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                    <strong>会員情報管理</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                    <strong>仕事管理</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                    <strong>メッセージ</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                    <strong>保存リスト</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                    <strong>各種認証設定</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                    <strong>支払い管理</strong>
+                </button></p>
+            <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                    <strong>アフィリエイト管理</strong>
+                </button></p>
+        </div>
+        <div style="padding-right: 30px" class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <ul class="nav nav-tabs tab-1"> 
+                            <li class="tab-style-grey active">
+                                <a ng-click="clickloginfotab()" data-toggle="tab"> <b> <u>ログイン情報設定</u></b></a>
+                            </li>                                     
+                            <li class="tab-style-grey">
+                                <a ng-click="clickmailalerttab()" data-toggle="tab"> <b> <u>メール通知設定</u></b></a>
+                            </li>                                     
+                            <li class="tab-style-grey">
+                                <a ng-click="clickoutservicetab()" data-toggle="tab"><b> <u>外部通知設定</u></b></a>
+                            </li>                                     
+                            <li class="tab-style-grey">
+                                <a ng-click="clickblockedusertab()" data-toggle="tab"> <b> <u>ブロック</u></b></a>
+                            </li>
+                            <li class="tab-style-grey">
+                                <a ng-click="clickuserregistertab()" data-toggle="tab"> <b> <u>会員登録・退会</u></b></a>
+                            </li>                                     
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <ng-include src="inlcudehtmlpath"></ng-include>                                      
+        </div>
+    </div>
+</div>

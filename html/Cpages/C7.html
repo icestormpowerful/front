@@ -1,0 +1,387 @@
+<div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   対応可能施策情報の選択</b></p>
+</div>
+<div class="row">
+    <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px;">
+        <div style="margin-bottom: 20px;text-align: left">
+            <h3 class="h1-left-border"> <b style="color: #337ab7;">リスト一覧</b></h3>
+        </div>
+        <p style="font-size: 14px"> <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="clickusersavedlist(0)">
+                <strong>提案を検討リスト</strong>
+            </button></p>
+        <p style="font-size: 14px"> <button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="clickusersavedlist(1)">
+                <strong>興味リスト</strong>
+            </button></p>
+        <p style="font-size: 14px"> <button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="clickusersavedlist(2)">
+                <strong>非表示リスト</strong>
+            </button></p>
+    </div>
+    <div style="padding-right: 30px" class="col-sm-10">
+        <div class="row div-style-yellow " style="border: 1px solid rgb(245,168,46);padding: 30px 20px 20px 20px;margin-top:0px;">
+            <label> 
+            <input class="control-label" type="radio" name="addway" ng-model="addwayradio" value="1" ng-change="addwayradiochange(addwayradio)">        登録されている施策の中から登録する 
+            </label> 
+            <br> 
+            <label> 
+            <input class="control-label" type="radio" checked>        SAMURAIに登録されていない施策を登録する
+            </label> 
+        </div>
+        <div class="row">
+            <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                <tbody> 
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>登録期間</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <md-select placeholder="県・府庁省" ng-model="useraddsubsidy.companyprovince" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+                                      <md-option ng-value="provinceitem.register_insti" style="max-width:320px;" ng-repeat="provinceitem in downeddisplaycompanystring">{{provinceitem.register_insti}}</md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4">
+                                    <input class="form-control" id="focusedInput" type="text" placeholder="市区町村" ng-model="useraddsubsidy.companycity">
+                                </div>
+                            </div>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>分類・カテゴリー</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <div ng-repeat="categoryitem in useraddsubsidy.categoryitemlist" ng-init="parentindex = $index" style="margin-bottom:7px;">
+                                <div class="gridcell-right">
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                        <md-select placeholder="選択" ng-model="categoryitem.text" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;" ng-change="C7selectBigCategory($index)">
+                                          <md-option ng-value="bigcategoryitem.category" style="max-width:320px;" ng-repeat="bigcategoryitem in downeddisplaycategorystring">{{bigcategoryitem.category}}</md-option>
+                                        </md-select>
+                                    </div>
+                                    </div>
+
+                                </div>
+                                <div class="gridcell-right">
+                                    <div class="row">
+                                    <div class="col-md-12">
+                                        <label ng-repeat="subarrayitem in categoryitem.subarray">
+                                            <input type="checkbox" ng-checked="C7subcategoryexists(parentindex,subarrayitem)"
+                                                   ng-click="C7subcategorytoggle(parentindex,subarrayitem)"/>
+                                            {{subarrayitem}}&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                                         </label>
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a ng-click="C7addCategory()">add one more...</a>
+                                </div>
+                            </div>
+                        </td>                                     
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>タグ</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input class="form-control" id="focusedInput" type="text" ng-model="useraddsubsidy.subsidytag">
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>対象地域</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <div class="gridcell-right" ng-repeat="regionitem in useraddsubsidy.regionlist" style="margin-bottom:7px;">
+                                <div class="row">
+                                <div class="col-md-4">
+                                    <md-select placeholder="県・府庁省" ng-model="regionitem.province" style="min-width: 200px;background:#fff;border:1px solid #A9A9A9;margin-top:0px;margin-bottom:0px;">
+                                      <md-option ng-value="provinceitem.region" style="max-width:320px;" ng-repeat="provinceitem in downeddisplayregionstring">{{provinceitem.region}}</md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4">
+                                    <input class="form-control" id="focusedInput" type="text" placeholder="市区町村" ng-model="regionitem.city">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a ng-click="C7addRegion()">add one more...</a>
+                                </div>
+                            </div>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>施策名</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input class="form-control" id="focusedInput" type="text" ng-model="useraddsubsidy.subsidyname">
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>施策名（サブ）</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input class="form-control" id="focusedInput" type="text" ng-model="useraddsubsidy.subsidynamesub">
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>目的</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.purpose"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>対象者の詳細</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.targetinfo"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>支援内容</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.support"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>取得可能金額設定</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="1">
+                            100万円以下&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="2">
+                            100万〜500万円以下&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="3">
+                            500万〜1000円万以下&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                            <br/>
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="4">
+                            1000万〜5000万以下&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="5">
+                            5000万〜1億円以下&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                            <input class="control-label" type="radio" name="amount" ng-model="useraddsubsidy.availableamount" value="6">
+                            1億円以上&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>支援規模</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.supportscale"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>募集期間</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.recruitment"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>対象期間</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.period"></textarea>
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>採択結果</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <input class="form-control" id="focusedInput" type="text" ng-model="useraddsubsidy.adoption">
+                        </td> 
+                    </tr>
+                    <tr> 
+                        <td rowspan="1" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%"><b>お問い合わせ</b></td> 
+                        <td colspan="2" style="font-size: 12px;width: 100%">
+                            <textarea name="Text1" style="width:100%;" rows="5" ng-model="useraddsubsidy.contact"></textarea>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td rowspan="5" class="div-style-blue2 text-primary" style="font-size: 12px;width: 20%">pdf データ</td>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[0]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(0)"></button>
+                            </div>
+                        </td>
+                        <td rowspan="5" style="width:50%;text-align:center;vertical-align: middle;">
+                            <div class="row" style="height:250px;width:100%;margin-left:0px;margin-right:0px;">
+                                <div id="dropbox" class="dropbox" ng-class="dropClass"><span class="glyphicon glyphicon-folder-open" style="position: relative;top:15%;font-size: 50px;"></span><p style="font-size:14px;position: relative;top:30%;">アップロードする場合は、ここに ドラッグ＆ドロップしてください。</p></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[1]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(1)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[2]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(2)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[3]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(3)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:30%;">
+                            <div class="col-md-10">
+                                <input class="form-control" id="focusedInput" value={{filedisplaystring[4]}} type="text" disabled>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="button" class="submit-delete-button" ng-click="deletepdffiledata(4)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+            <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP2</span>   施策対応費用の設定</b></p>
+        </div>
+        <div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 10%">
+                    <button type="button" class="btn-primary" style="width: 100%;margin-bottom:10px;">保存する</button>
+                    <select class="form-control"> 
+                        <option value="1">1</option>                                     
+                        <option value="2">2</option>                                     
+                        <option value="3">3</option>                                     
+                    </select>
+                    <b>&nbsp;</b>
+                </td>                             
+                <td style="font-size: 12px">
+                    <div class="col-sm-9">
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <select class="form-control"> 
+                                    <option value="1">1</option>                                                 
+                                    <option value="2">2</option>                                                 
+                                    <option value="3">3</option>                                                 
+                                </select>                                             
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <h5>業務内容</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <input class="control-label" type="checkbox" value="" ng-model="C7balancesetting.C7documentbalance">  書類代行費用 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" placeholder="金額" ng-disabled="!C7balancesetting.C7documentbalance" ng-model="C7balancesetting.documentbalance"> 
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" ng-disabled="!C7balancesetting.C7documentbalance" ng-model="C7balancesetting.documentway"> 
+                                            <option value="1">円</option> 
+                                            <option value="2">%</option> 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <input class="control-label" type="checkbox" value="" ng-model="C7balancesetting.C7applybalance">    申請代行費用
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" placeholder="金額" ng-disabled="!C7balancesetting.C7applybalance" ng-model="C7balancesetting.applybalance"> 
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="form-control" ng-disabled="!C7balancesetting.C7applybalance" ng-model="C7balancesetting.applyway"> 
+                                            <option value="1">円</option>                                                         
+                                            <option value="2">%</option>                                                   
+                                        </select>                                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 40px;margin-top: 40px">
+                            <div class="col-sm-3">
+                                <h5>着手金</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h5>着手金</h5> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" placeholder="金額" ng-model="C7balancesetting.startbalance">
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <h5>その他費用</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <h5>合計</h5> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" value={{getTotalotherbalanceC7()}} placeholder="合計金額" disabled>
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px" ng-repeat="otheritem in C7balancesetting.otherlist">
+                                    <div class="col-sm-4">
+                                        <h5 ng-if="$index==0">内訳</h5>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="内訳1" ng-model="otheritem.comment"> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" placeholder="金額" ng-model="otheritem.balance">
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a ng-click="addotherbalanceC7()">add one more...</a>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-3"> </div>
+                                    <div class="col-sm-3"> 
+                                        <button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                            <strong>設定を保存</strong>
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-3"> </div>
+                                </div>
+                            </div>
+                        </div>                                     
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        <div class="row text-center" style="margin-bottom: 20px; ">
+            <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-right :10px;width:10%" ng-click="C7clickaddsubsidy()">適用する</button>
+            <button style="width:10%;padding-left:0px;padding-right:0px;" class="btn btn-default btn-style-shadow-grey" type="button">下書き保存</button>
+        </div>
+    </div>
+</div>

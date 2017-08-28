@@ -1,0 +1,450 @@
+<div class="container">
+            <div class="row">
+                <label class="container-header-pagetext">
+                <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;マイページ</label>
+            </div>
+            <div class="row">
+                <h1><strong>マイページ</strong></h1>
+                <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>マイページでは、様々な仕事の管理が可能です。ここの情報を充実させることで、対応頂く方の信頼度も上がり、スムーズに仕事が進みます。</b></p>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+                    <div class="div-style-blue" style="margin-top: 0px">
+                        <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                        <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                        <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+                    </div>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                            <strong>マイページトップ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                            <strong>プロフィール管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                            <strong>会員情報管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                            <strong>仕事管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                            <strong>メッセージ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                            <strong>保存リスト</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                            <strong>各種認証設定</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                            <strong>支払い管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                            <strong>アフィリエイト管理</strong>
+                        </button></p>
+                </div>
+                <div class="col-sm-8" style="padding-right: 30px">
+                    <div class="row well">
+                        <div class="col-sm-8" style="padding-left: 20px">
+                            <div class="text-center">
+                                <h4 class="text-primary"><b>自分のプロフィール写真を載せてみましょう</b></h4>
+                                <div class="input-group" style="margin-bottom: 20px">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit">参照</button>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-primary btn" style="box-shadow-type-0: outside;box-shadow: 1px 1px 0px 2px #185b9f;padding-left: 30px;padding-right: 30px">保存する</button>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-4"> 
+                            <div class="text-right">
+                                <img src={{photourl}} style="width: 185px;height: 145px" class="img-thumbnail">
+                            </div>                             
+                        </div>
+                    </div>
+                    <div class="row div-style-grey">
+                        <h3 class="h1-left-border"><b>お知らせ</b></h3>
+                    </div>
+                    <div class="row">
+                        <table class="table table-hover" style="border: 1px solid #d6d6d6;"> 
+                            <tbody> 
+                                <tr style="text-align: center"> 
+                                    <td class="text-muted" style="font-size: 12px">○○月○○日</td> 
+                                    <td class="text-primary" style="font-size: 12px">キストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td> 
+                                </tr>
+                                <tr style="text-align: center"> 
+                                    <td class="text-muted" style="font-size: 12px">○○月○○日</td> 
+                                    <td class="text-primary" style="font-size: 12px">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td> 
+                                </tr>
+                                <tr style="text-align: center"> 
+                                    <td class="text-muted" style="font-size: 12px">○○月○○日</td> 
+                                    <td class="text-primary" style="font-size: 12px">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td> 
+                                </tr>
+                                <tr style="text-align: center"> 
+                                    <td class="text-muted" style="font-size: 12px">○○月○○日</td> 
+                                    <td class="text-primary" style="font-size: 12px">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</td> 
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>                     
+                    <div class="row div-style-grey">
+                        <h3 class="h1-left-border"><b>お勧めの案件</b></h3>
+                    </div>
+                    <div class="row">
+                        <table class="table"> 
+                            <tbody>
+                                <tr> 
+                                    <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-style-grey btn-default" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <ul class="pagination"> 
+                                <li>
+                                    <a href="#">«</a>
+                                </li>                                 
+                                <li class="active">
+                                    <a href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">2</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">3</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">»</a>
+                                </li>                                 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row div-style-grey">
+                        <h3 class="h1-left-border"><b>案件の閲覧履歴</b></h3>
+                    </div>
+                    <div class="row">
+                        <table class="table"> 
+                            <tbody>
+                                <tr> 
+                                    <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>
+                                <tr> 
+                                    <td style="border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-2" style="margin-top: 20px">
+                                                <img src="file:///C:/Program%20Files%20(x86)/Pinegrow/placeholders/img8.jpg" style="width: 100px">
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <h3 class="text-primary"><b>タイトルタイトルタイトルタイトル</b></h3>
+                                                <h4 class="text-primary"><b>登録期間</b>：○○○/<b>募集時期</b>：○○○/<b>金額</b>：○○○</h4> 
+                                                <p style="font-size: 14px">テキストテキストテキストテキストテキテキストテキストテキストテキストテキストテキストテキストテキストテキテキスト</p>
+                                            </div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center">
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                    <p>事業者名　：　○○○○</p>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                            <button type="button" class="btn btn-warning" style="width: 120px">提案を検討</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">興味あり</button>
+                                            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px">非表示</button>
+                                        </div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <ul class="pagination"> 
+                                <li>
+                                    <a href="#">«</a>
+                                </li>                                 
+                                <li class="active">
+                                    <a href="#">1 <span class="sr-only">(current)</span></a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">2</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">3</a>
+                                </li>                                 
+                                <li>
+                                    <a href="#">»</a>
+                                </li>                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2" style="padding-left: 5px;padding-right: 0px">
+                    <div class="div-style-yellow1" style="text-align: center;margin-top: 0px">
+                        <h3 style="font-size: 20px;padding-top: 50px;padding-bottom: 50px">広告枠</h3>
+                    </div>
+                    <div class="div-style-yellow1" style="text-align: center">
+                        <h3 style="font-size: 20px;padding-top: 50px;padding-bottom: 50px">広告枠</h3>
+                    </div>
+                    <div class="div-style-grey text-center" style="text-align: center">
+                        <h4 class="text-primary" style="font-size: 14px">プロフィール充実度</h4>
+                        <div class="progress" style="width: 80%;margin-left: 20px;margin-right: 20px">
+                            <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;" class="progress-bar"> 
+                                <span>60%</span> 
+                            </div>
+                        </div>
+                        <p style="font-size: 11px">プロフィールを充実させるほど、<br>
+マッチング率が上がります。</p>
+                        <div style="margin: 5px 0px; padding: 0px 5px;" class="div-style-blue">
+                            <h6>プロフィール写真　＋１０%</h6>
+                        </div>
+                        <div style="margin: 5px 0px; padding: 0px 5px;" class="div-style-blue">
+                            <h6>自己紹介　　　　　＋１０%</h6>
+                        </div>
+                        <div style="margin: 5px 0px; padding: 0px 5px;" class="div-style-blue">
+                            <h6>○○○　　　　　　＋１０%</h6>
+                        </div>
+                    </div>
+                    <h4 class="h1-left-border text-primary"><strong>実績サマリー</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6>テキストテキスト　　○○○</h6>
+                        <h6>テキストテキスト　　○○○</h6>
+                    </div>                     
+                    <h4 class="h1-left-border text-primary"><strong>認証状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6>本人確認　　OK</h6>
+                        <h6>○○○○　　NG</h6>
+                    </div>
+                    <h4 class="h1-left-border text-primary"><strong>仕事状況</strong></h4>
+                    <div class="div-style-grey text-center" style="margin-top: 10px">
+                        <h6>テキストテキスト　　○○○</h6>
+                        <h6>テキストテキスト　　○○○</h6>
+                    </div>
+                </div>
+            </div>
+        </div>

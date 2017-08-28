@@ -1,0 +1,206 @@
+<div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   対応可能施策情報の選択</b></p>
+</div>
+<div class="row">
+    <div style="    border-bottom: 1px solid #ddd;">
+        <ul class="nav nav-tabs tab-1"> 
+            <li class="tab-style-grey active">
+                <a data-toggle="tab"> <b> <u>対応可能施策の登録</u></b></a>
+            </li>                         
+            <li class="tab-style-grey">
+                <a data-toggle="tab" ng-click="direct_C5screen()"> <b> <u>対応可能施策一覧</u></b></a>
+            </li>                         
+        </ul>                     
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="row" style="margin-top:15px;margin-bottom:15px;">
+            <div class="col-sm-3">
+                <input class="control-label" type="checkbox" ng-click="C4selectallselectedsubsidy()" ng-checked="C4allselectedstate()">        一括チェック
+            </div>
+            <div class="col-sm-9">
+                <button style="float:right;" class="btn btn-default btn-style-shadow-grey" type="button" ng-click="hideallsettedsubsidy()">設定した施策を非表示</button>
+                <button style="float:right;margin-right:15px;" class="btn btn-default btn-style-shadow-grey" type="button" ng-click="deleteselectedsettedsubsidy()">すべて削除</button>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table"> 
+                <tbody>
+                    <tr ng-repeat="subsidyitem in selectedsubsidyarray" style={{C4gettableitemstyle(subsidyitem.data.id)}}> 
+                        <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <div class="col-sm-2" style="margin-top: 20px;padding: 0px 0px;">
+                                        <input class="control-label" type="checkbox" ng-checked="C4existsubsidy(subsidyitem.data.id)" 
+                                         ng-click="C4selectsubsidy(subsidyitem.data.id)" >
+                                        <img src={{displayimageurl+subsidyitem.data.image_id}} style="width: 100px;margin-left:10%;height:100px;">
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <h3 class="text-primary"> <b>{{subsidyitem.data.name}}</b></h3>
+                                        <h4 class="text-primary"> <b>登録期間:</b>{{subsidyitem.data.register_insti_detail}}<b>/募集時期:</b>{{subsidyitem.data.subscript_duration}}<b>/金額:</b>{{displayamountstringC8[subsidyitem.data.acquire_budget]}}</h4> 
+                                        <p style="font-size: 14px">{{subsidyitem.data.target}}</p>
+                                    </div>
+                                    <div class="row" style="margin-left: 30px;margin-bottom: 20px">
+                                        <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.data.id,0)">提案を検討</button>
+                                        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.data.id,1)">興味あり</button>
+                                        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.data.id,2)">非表示</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2" style="padding-right: 10px" ng-if="subsidyitem.balance"> 
+                                    <div class="div-style-yellow text-center" style="float: right;">
+                                        <p>書類代行　：　{{subsidyitem.balance.business}}円</p>
+                                        <p>着手金　：　{{subsidyitem.balance.start}}円</p>
+                                        <p>その他　：　{{subsidyitem.balance.other}}円</p>
+                                        <button class="btn btn-default btn-style-shadow-grey" type="button" ng-click="hidesearchedsubsidy(subsidyitem.data.id)">非表示</button>
+                                    </div>                                                 
+                                </div>
+                            </div>
+                        </td>                                     
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row col-sm-12" style="margin-top: 5px;padding-bottom: 5px;text-align:center">
+                <button class="btn btn-default btn-style-shadow-grey" style="width:20%;" type="button" ng-click="backtoC1screen()">検索に戻る</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP2</span>   施策対応費用の設定</b></p>
+</div>
+<div class="row">
+    <table class="table table-hover table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+        <tbody> 
+            <tr> 
+                <td rowspan="3" class="div-style-blue2 text-primary" style="font-size: 12px;width: 10%">
+                    <button type="button" class="btn-primary" style="width: 100%;margin-bottom:10px;">保存する</button>
+                    <select class="form-control"> 
+                        <option value="1">1</option>                                     
+                        <option value="2">2</option>                                     
+                        <option value="3">3</option>                                     
+                    </select>
+                    <b>&nbsp;</b>
+                </td>                             
+                <td style="font-size: 12px">
+                    <div class="col-sm-9">
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <select class="form-control"> 
+                                    <option value="1">1</option>                                                 
+                                    <option value="2">2</option>                                                 
+                                    <option value="3">3</option>                                                 
+                                </select>                                             
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <h5>業務内容</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <input class="control-label" type="checkbox" value="" ng-model="C4balancesetting.C4documentbalance">  書類代行費用 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" placeholder="金額" ng-disabled="!C4balancesetting.C4documentbalance" ng-model="C4balancesetting.documentbalance"> 
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" ng-disabled="!C4balancesetting.C4documentbalance" ng-model="C4balancesetting.documentway"> 
+                                            <option value="1">円</option> 
+                                            <option value="2">%</option> 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <input class="control-label" type="checkbox" value="" ng-model="C4balancesetting.C4applybalance">    申請代行費用
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="number" class="form-control" placeholder="金額" ng-disabled="!C4balancesetting.C4applybalance" ng-model="C4balancesetting.applybalance"> 
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" ng-disabled="!C4balancesetting.C4applybalance" ng-model="C4balancesetting.applyway"> 
+                                            <option value="1">円</option>                                                         
+                                            <option value="2">%</option>                                                   
+                                        </select>                                                     
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 40px;margin-top: 40px">
+                            <div class="col-sm-3">
+                                <h5>着手金</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h5>着手金</h5> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" placeholder="金額" ng-model="C4balancesetting.startbalance">
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom: 5px;margin-top: 5px">
+                            <div class="col-sm-3">
+                                <h5>その他費用</h5>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                        <h5>合計</h5> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" value={{getTotalotherbalanceC4()}} placeholder="合計金額" disabled>
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px" ng-repeat="otheritem in C4balancesetting.otherlist">
+                                    <div class="col-sm-4">
+                                        <h5 ng-if="$index==0">内訳</h5> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="内訳1" ng-model="otheritem.comment"> 
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group has-feedback">
+                                            <input type="number" class="form-control" placeholder="金額" ng-model="otheritem.balance">
+                                            <span class="form-control-feedback">円</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-4">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a ng-click="addotherbalanceC4()">add one more...</a>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                    <div class="col-sm-3"> </div>
+                                    <div class="col-sm-3"> 
+                                        <button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                            <strong>設定を保存</strong>
+                                        </button>
+                                    </div>
+                                    <div class="col-sm-3"> </div>
+                                </div>
+                            </div>
+                        </div>                                     
+                    </div>
+                </td>
+            </tr>                         
+        </tbody>
+    </table>
+</div>
+<div class="row text-center" style="margin-bottom: 20px; ">
+    <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-right :10px;width:10%" ng-click="applybalancetosubsidy()">適用する</button>
+    <button style="width:10%" class="btn btn-default btn-style-shadow-grey" type="button">下書き保存</button>
+</div>

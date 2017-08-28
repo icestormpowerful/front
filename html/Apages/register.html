@@ -1,0 +1,124 @@
+<div class="container">
+    <!-- subtitle-text -->
+    <div class="row" style="margin-top:40px;">
+       <strong style="font-size: 26px;">会員登録をする</strong>
+       <strong class="subtitle_small" style="margin-left:60px;">すでに登録済みの方か、こちらからログインしてください。</strong>
+    </div>
+
+    <div class="row" style="margin-top:10px;margin-bottom:50px;">
+       <div class="subtitle_small" style="width: 100%;border-bottom: 1px solid #404040;"></div>
+    </div>
+
+    <!-- input group -->
+    <form class="form-horizontal">
+      <!-- email -->
+      <div class={{formstring[emailformflag]}} style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">メールアドレス</label>
+        <div class="col-sm-1">
+          <img src="resources/img/emptyalert.png" style={{emptydisplaystring[emptystatearray[0]]}}>
+        </div>
+        <div class="col-sm-5">
+          <input class="form-control" id={{inputtypestring[emailformflag]}} type="email" placeholder="メールアドレス" ng-model="useremail" ng-blur="loseFocusEmail()">
+          <span class="glyphicon glyphicon-remove form-control-feedback" style={{emailfailedicon}}></span>
+          <span class="glyphicon glyphicon-ok form-control-feedback" style={{emailsuccessicon}}></span>
+        </div>
+      </div>
+
+      <!-- password -->
+      <div class={{formstring[passwordformflag]}} style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">パスワード</label>
+        <div class="col-sm-1">
+          <img src="resources/img/emptyalert.png" style={{emptydisplaystring[emptystatearray[1]]}}>
+        </div>
+        <div class="col-sm-5">
+          <input class="form-control" id={{inputtypestring[passwordformflag]}} type="password" onkeypress='return 
+          (event.charCode >= 48 && event.charCode <= 57) || 
+            (event.charCode >= 65 && event.charCode <= 90) || 
+            (event.charCode >= 97 && event.charCode <= 122)' placeholder="パスワード" ng-model="userpassword" ng-blur="loseFocusPassword()">
+          <span class="glyphicon glyphicon-remove form-control-feedback" style={{passwordfailedicon}}></span>
+          <span class="glyphicon glyphicon-ok form-control-feedback" style={{passwordsuccessicon}}></span>
+        </div>
+        <div class="col-sm-4" style="height:100%">
+          <label style="font-size: 11px; color: #989898;text-align:bottom;">半角英数字　8文字以上</label>
+        </div>
+      </div>
+
+      <!-- username -->
+      <div class={{formstring[nameformflag]}} style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">ユーザー名</label>
+        <div class="col-sm-1">
+          <img src="resources/img/emptyalert.png" style={{emptydisplaystring[emptystatearray[2]]}}>
+        </div>
+        <div class="col-sm-5">
+          <input class="form-control" id={{inputtypestring[nameformflag]}} type="text" onkeypress='return 
+          (event.charCode >= 48 && event.charCode <= 57) || 
+            (event.charCode >= 65 && event.charCode <= 90) || 
+            (event.charCode >= 97 && event.charCode <= 122)' placeholder="ユーザー名" ng-model="username" ng-blur="loseFocusName()">
+          <span class="glyphicon glyphicon-remove form-control-feedback" style={{namefailedicon}}></span>
+          <span class="glyphicon glyphicon-ok form-control-feedback" style={{namesuccessicon}}></span>
+        </div>
+        <div class="col-sm-4" style="height:100%">
+          <label style="font-size: 11px; color: #989898;text-align:bottom;">半角英数字　4文字以上</label>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:30px; {{recommanddisplay}}">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <label>利用可能なユーザー名 {{recommandstring}}</label>
+        </div>
+      </div>
+      <!-- nickname -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">表示名</label>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <input class="form-control" id="focusedInput" type="text" placeholder="表示名" ng-model="usernickname">
+        </div>
+        <div class="col-sm-4" style="height:100%">
+          <img src="resources/img/nicknameguide.png">
+        </div>
+      </div>
+      <!-- wayselect -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <label class="col-sm-2" style="font-size: 18px;">利用方法</label>
+        <div class="col-sm-1">
+          <img src="resources/img/emptyalert.png" style={{emptydisplaystring[emptystatearray[3]]}}>
+        </div>
+        <div class="col-sm-6">
+          <div id="donate" style="width: 100%;">
+              <label class="graybutton" style="width:45%;"><input type="radio" name="toggle" ng-model="wayflag" value="0"><span>事業者の方</span></label>
+              <label class="graybutton" style="width:45%;"><input type="radio" name="toggle" ng-model="wayflag" value="1"><span>士業の方</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <div class="form-group" style="margin-bottom:30px;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <input type="submit" ng-click="submitRegister()" class="submitbutton btn" style="width:100%" value="アカウントを登録する(無料)"/>
+        </div>
+      </div>
+    </form>      
+
+    <!-- subtitle-text -->
+    <div class="row" style="margin-top:20px;">
+       <strong style="font-size: 26px;">別のアカウントより登録をする</strong>
+    </div>
+
+    <div class="row" style="margin-top:10px;margin-bottom:30px;">
+       <div class="subtitle_small" style="width: 100%;border-bottom: 1px solid #404040;"></div>
+    </div>    
+    <div class="row" style="margin-bottom:40px;">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4" style="margin-right:20px;">
+        <input type="submit" name="regisSubmit" class="facebookbutton btn" style="width:100%" value="facebookで登録する（無料）"/>
+      </div>
+      <div class="col-sm-4">
+        <input type="submit" name="regisSubmit" class="googlebutton btn" style="width:100%" value="googleで登録する（無料）"/>
+      </div>
+    </div>
+</div>

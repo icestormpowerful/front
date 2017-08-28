@@ -1,0 +1,65 @@
+<div class="row" style="margin-top: 0px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+    <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   申請代行募集施策情報の選択</b></p>
+</div>
+<div class="row">
+    <div class="col-sm-12" style="padding-right: 30px"> 
+        <div class="row div-style-grey" style="margin-top: 0px;margin-bottom: 20px">
+            <div class="col-sm-6">
+                <h5 style="font-size: 13px">{{paginationsetting.currentpageitemcount}}件/{{paginationsetting.totalitemcount}}件</h5> 
+            </div>
+            <div class="col-sm-6">
+                <h5 class="col-sm-3" style="font-size: 13px">並び替え：</h5>
+                <div class="col-sm-3">
+                    <select class="form-control"> 
+                        <option value="1">1</option>                                     
+                        <option value="2">2</option>                                     
+                        <option value="3">3</option>                                     
+                    </select>
+                </div>
+                <h5 class="col-sm-3" style="font-size: 13px">表示件数：</h5>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="paginationsetting.itemperpagestring" ng-change="itemperpagechanged()"> 
+                        <option value="10">10</option>                                     
+                        <option value="15">15</option>                                     
+                        <option value="20">20</option>                                     
+                    </select>
+                </div>                             
+            </div>
+        </div>
+        <div class="row">
+            <table class="table"> 
+                <tbody>
+                    <tr ng-repeat="subsidyitem in subsidylist"> 
+                        <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                            <div class="row">
+                                <div class="col-sm-2" style="margin-top: 20px">
+                                    <img src={{displayimageurl+subsidyitem.image_id}} style="width: 100px">
+                                </div>
+                                <div class="col-sm-7" ng-click="viewdetailsubsidy($index)">
+                                    <h3 class="text-primary"><b>{{subsidyitem.name}}</b></h3>
+                                    <h4 class="text-primary"><b>登録期間:</b>{{subsidyitem.register_insti_detail}}<b>/募集時期:</b>{{subsidyitem.subscript_duration}}<b>/金額:</b>{{displayamountstring[subsidyitem.acquire_budget]}}</h4> 
+                                    <p style="font-size: 14px">{{subsidyitem.target}}</p>
+                                </div>
+                                <div class="col-sm-3"  style="padding-right: 10px;padding-top:50px;"> 
+                                    <div style="float:right;">
+                                        <button type="button" class="btn btn-success  btn-style-shadow-green" style="width: 100%;" ng-click="selectsubsidy(subsidyitem.id)">施策を選択する</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+                                <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,0)">提案を検討</button>
+                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,1)">興味あり</button>
+                                <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(subsidyitem.id,2)">非表示</button>
+                            </div>
+                        </td>                                     
+                    </tr>                      
+                </tbody>
+            </table>
+            <div class="text-center">
+                <div class="pagination">
+                    <ul uib-pagination total-items="paginationsetting.totalitemcount" max-size="5" ng-model="paginationsetting.currentpage" previous-text="前へ" next-text="次へ" first-text="最初" last-text="最後" direction-links="false" boundary-links="true" items-per-page="paginationsetting.itemperpage" class="pagination-sm" boundary-link-numbers="true" rotate="true" ng-change="updatetableitemdata()"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

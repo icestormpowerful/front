@@ -1,0 +1,101 @@
+<div class="row" style="margin-top: 30px;">
+                <div class="col-sm-10" style="padding-right: 30px">
+                    <div class="row">
+                        <table class="table table-bordered table-hover" style="margin-bottom: 20px"> 
+                            <thead class="div-style-blue2"> 
+                                <tr style="background-color: rgb(212,230,245);color: black;"> 
+                                    <th style="width: 20%;height:50px;text-align:center;"><h5 class="text-primary"><b>予算目安</b></h5> <p><br>{{bpart24resultarray.visit_count}}<br></p> </th>
+                                    <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>残り時間</b></h5> <p><br>{{bpart24resultarray.document_business_price}}<br></p> </th> 
+                                    <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>提案数</b></h5> <p><br>{{bpart24resultarray.request_business_price}}<br></p> </th> 
+                                    <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>お気に入り</b></h5> <p><br>{{bpart24resultarray.deposit_money}}<br></p> </th> 
+                                    <th style="width: 20%;text-align:center;"> <h5 class="text-primary"><b>閲覧数</b></h5> <p><br>{{bpart24resultarray.remain_time}}<br></p> </th> 
+                                </tr>                                 
+                            </thead>                             
+                        </table>
+                    </div>   
+
+                    <div class="row" style="width:70%">
+                        <div class="col-sm-5 div-style-grey" style="padding-top:0;padding-bottom:0">
+                            <h6><b>○○○○○○○○○（依頼番号）</b></h6>
+                        </div>
+                        <div class="col-sm-6 div-style-grey" style="padding-top:0;padding-bottom:0;float:right">
+                            <h6><b>○○○○○○○○○○○○○○○○○○○○○○○（重視する点）</b></h6>
+                        </div>
+                        <div class="col-sm-12 div-style-yellow" style="padding-top:0;padding-bottom:0;margin-top:0">
+                            <h6><b>開始：<span>{{bpart24resultarray.post_date}}</span> 終了：<span>{{bpart24resultarray.complete_date}}</span>　希望納期：<span>{{bpart24resultarray.submit_date}}</span>　　</b></h6>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>依頼内容 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <span style="font-size: 14px">{{bpart24resultarray.content}}</span>
+                                    </div>                                     
+                                </div>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>依頼内容 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <span style="font-size: 14px">{{bpart24resultarray.main_point}}</span>
+                                    </div>                                     
+                                </div>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+                            <div>
+                                <div class="col-sm-2" style="padding:0 0;">
+                                    <h5 class="text-primary"><b>依頼内容 &nbsp; &nbsp;&nbsp;</b></h5>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <span style="font-size: 14px">{{bpart24resultarray.sub_content}}</span>
+                                    </div>                                     
+                                </div>
+                            </div>                             
+                        </div>
+                        <div class="col-sm-12 text-center"> 
+                            <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-bottom: 20px">終了報告する</button>
+                        </div>                         
+
+                        <ng-include src="inlcudeb241nhtmlpath"></ng-include>
+ 
+                    </div>
+                </div>
+                <div class="col-sm-2" style="padding-left: 5px;padding-right: 0px">
+                    <p style="font-size: 14px">
+                    <button type="button" class="btn btn-style-shadow-grey col-sm-12" style="margin-bottom:10px;" ng-click="sidebarbuttonclicked(1)">終了報告する</button></p>
+                    <p style="font-size: 14px"> 
+                    <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="sidebarbuttonclicked(2)" disabled>
+                        <strong>ビデオチャット</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> 
+                    <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="sidebarbuttonclicked(3)">
+                            <strong>メッセージを送る</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> 
+                    <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="sidebarbuttonclicked(4)">
+                            <strong>別の案件を提案</strong>
+                        </button></p>
+                    <p style="font-size: 14px"> 
+                    <button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="sidebarbuttonclicked(5)">
+                            <strong>違反申告する</strong>
+                        </button></p>
+                    <div class="div-style-blue" style="text-align:center;margin-top: 0px">
+                        <img src={{return_imageid(bpart18dataarray.image)}} style="width: 100px;height:100px;margin-top: 10px" class="img-thumbnail">
+                         <p style="margin: 0px 0px 0px 0px;">士業名 ：{{bpart18dataarray.displayname}}</p>
+                         <p style="margin: 0px 0px 0px 0px;">実績：{{bpart18dataarray.result}}</p>
+                         <p style="margin: 0px 0px 0px 0px;">評価：{{bpart18dataarray.evaluate}}件</p>
+                        <button type="button" class="btn-primary" style="width: 100%">保存する</button></p>
+                    </div>
+                </div>
+            </div>

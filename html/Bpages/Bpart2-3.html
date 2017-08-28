@@ -1,0 +1,99 @@
+<div class="row">
+    <label class="container-header-pagetext">
+        <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;助成金・補助金の検索</label>
+    </div>
+    <div class="row">
+        <h1><strong>助成金・補助金の検索</strong></h1>
+        <p style="font-size: 14px;margin-top: 20px;"><b>各省庁が公開している助成金・補助金の手動検索が行えます。手動検索を行い、対応可能な助成金・補助金を増やすことで、依頼数が増えます。</b></p>
+</div>
+<div class="row" style="margin-top: 30px;">
+    <ul class="nav nav-tabs tab-1" style="border-bottom: 1px solid #ddd;"> 
+        <li class="tab-style-grey active">
+            <a data-toggle="tab" ng-click="addwayradiochange1(1)"><b><u>施策詳細</u></b></a>
+        </li>    
+    </ul>
+</div>
+<div class="row" style="margin-top: 20px;">
+    <p style="color:rgb(44,130,218);">{{C2displaysubsidylist[C3subsidy_index].name}}</p>
+    <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+        <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(C2displaysubsidylist[C3subsidy_index].id,0)">提案を検討</button>
+        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(C2displaysubsidylist[C3subsidy_index].id,1)">興味あり</button>
+        <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(C2displaysubsidylist[C3subsidy_index].id,2)">非表示</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8" style="padding-right: 30px">
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>登録機関</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].register_insti_detail}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象地域</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].region}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>更新日</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].update_date}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>施策名</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].name_serve}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>目的</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].target}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象者の詳細</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].info}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援内容・支援規模</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].support_content}}<br/>{{C2displaysubsidylist[C3subsidy_index].support_scale}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>募集期間</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].subscript_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象期間</b></p>
+            <p style="margin-top: 10px">{{C2displaysubsidylist[C3subsidy_index].object_duration}}</p>
+        </div>
+        <div class="row" style="margin-top:10px;margin-bottom:10px">
+            <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>pdfデータ</b></p>
+            <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinC3screen(C2displaysubsidylist[C3subsidy_index].register_pdf)"><a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+        </div>
+    </div>
+    <div class="col-sm-4" style="padding-left: 5px;padding-right: 0px">
+        <div class="col-sm-12 div-style-white">
+            <label> 
+                <input class="control-label" type="checkbox" value=""> チェックした事業者に提案をする      
+            </label>
+            <button style="padding: 0 0;float:right;margin: 0 0;width: 100px;" class="btn-primary btn btn-style-shadow-green btn-success" type="button" ng-click="gotoOfferB7screen()">保存する</button>
+        </div>
+        <table class="table table-bordered table-hover" style="margin-bottom: 5px"  ng-repeat="subsidyitem in B2Sayong"> 
+            <thead> 
+                <tr> 
+                    <th style="width: 5%;height:50px;text-align:center;vertical-align: middle;  ">
+                        <input class="control-label" type="checkbox" value="">
+                    </th>
+                    <th style="width: 30%;text-align:center;">
+                        <img src={{return_imageid(subsidyitem.image)}} style="width: 100px;height:100px;" class="img-thumbnail">
+                        <button type="button" class="btn-primary" style="width: 100%" ng-click="clickb2followbutton($index)">保存する</button>
+                    </th>                                 
+                    <th style="width: 65%;text-align:center;">
+                        <div ng-click="onClickB18(subsidyitem.id)">
+                            <p style="font-size: 20px;">
+                                士業名 ：{{subsidyitem.displayname}}<br>
+                                        実績：{{subsidyitem.result}}<br>
+                                        評価：{{subsidyitem.evaluate}}件</p>
+                        </div>
+                    </th>
+                </tr>                             
+            </thead>                         
+        </table>
+    </div>
+</div>
+<div class="row text-center">
+    <button style="width:10%" class="btn btn-default btn-style-shadow-grey" type="button" ng-click="backtoC2screen()">戻る</button>
+</div>

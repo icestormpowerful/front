@@ -1,0 +1,128 @@
+<div class="container">
+            <div class="row">
+                <label class="container-header-pagetext">
+                <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各種認証申請</label>
+            </div>
+            <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+                <h1><strong>各種認証申請</strong></h1>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+                    <div class="div-style-blue" style="margin-top: 0px">
+                        <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                        <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                        <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+                    </div>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                            <strong>マイページトップ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                            <strong>プロフィール管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                            <strong>会員情報管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                            <strong>仕事管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                            <strong>メッセージ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                            <strong>保存リスト</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                            <strong>各種認証設定</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                            <strong>支払い管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                            <strong>アフィリエイト管理</strong>
+                        </button></p>
+                </div>
+                <div style="padding-right: 30px" class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <ul class="nav nav-tabs tab-1"> 
+                                    <li class="tab-style-grey active">
+                                        <a href="#tab1" data-toggle="tab"> <b> <u>本人確認書類</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab2" data-toggle="tab"> <b> <u>機密保持確認</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab3" data-toggle="tab"><b> <u>電話確認</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab4" data-toggle="tab"> <b> <u>士チェック</u></b></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row div-style-green">
+                        <h6><i class="fa fa-check" style="color: #0abc03"></i> <b>本人確認書類を送信しました。</b></h6>
+                    </div>
+                    <div class="row div-style-grey" style="margin-top: 40px;margin-bottom: 40px">
+                        <h3 class="h1-left-border"> <b>手続きの流れ</b></h3>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px">
+                        <p style="padding-top: 30px;padding-bottom: 30px; border:1px solid #2c82da;text-align: center" class="text-primary col-sm-2">プロフィール編集</p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; text-align: center" class="col-sm-1"><i class="fa fa-arrow-right"></i></p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; border:1px solid #2c82da;text-align: center" class="text-primary col-sm-2">資料提出</p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; text-align: center" class="col-sm-1"><i class="fa fa-arrow-right"></i></p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; border:1px solid #2c82da;text-align: center" class="text-primary col-sm-2">資料確認</p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; text-align: center" class="col-sm-1"><i class="fa fa-arrow-right"></i></p>
+                        <p style="padding-top: 30px;padding-bottom: 30px; border:1px solid #2c82da;text-align: center" class="text-primary col-sm-2">資料確認</p>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                            <tbody> 
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>氏名</h5></td> 
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Placeholder text">
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>住所</h5></td> 
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Placeholder text">
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>生年月日</h5></td> 
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Placeholder text">
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>添付ファイル</h5></td> 
+                                    <td style="font-size: 12px">
+                                        <div class="col-sm-7">
+                                            <div class="row">
+                                                <div class="input-group"> 
+                                                    <input type="text" class="form-control" placeholder="Username"> 
+                                                    <span class="input-group-addon" style="background-color: #9ec3f4;color: #ffffff">参照</span> 
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-top: 5px;padding-bottom: 5px">
+                                                <input class="control-label" type="checkbox" value="">登録氏名が漢字・かな・ローマ字表記も含め証明書類と一致している
+                                            </div>
+                                            <div class="row">
+                                                <input class="control-label" type="checkbox" value="">登録住所が番地・部屋番号まで証明書類と一致している
+                                            </div>
+                                        </div>                                         
+                                    </td>
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row text-center">
+                        <button type="button" class="btn btn-style-shadow-green btn-success" style="margin-top: 20px;margin-bottom: 20px">送信する</button>
+                    </div>                     
+                </div>
+            </div>
+        </div>

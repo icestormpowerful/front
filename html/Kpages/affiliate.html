@@ -1,0 +1,110 @@
+<div class="container">
+            <div class="row">
+                <label class="container-header-pagetext">
+                <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;アフィリエイト管理</label>
+            </div>
+            <div class="row" style="margin-top: 30px;margin-bottom: 30px">
+                <h1><strong>アフィリエイト管理</strong></h1>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-2" style="padding-left: 0px;padding-right: 25px">
+                    <div class="div-style-blue" style="margin-top: 0px">
+                        <img src={{photourl}} style="width: 95px;margin-top: 10px;height:95px;" class="img-thumbnail">
+                        <h3 style="font-size: 12px;margin-top: 10px;margin-bottom: 10px">{{displayname}}（<b>表示名</b>）</h3>
+                        <h3 style="font-size: 12px;margin-top: 0px;margin-bottom: 10px">{{username}}（<strong>ユーザー名</strong>）</h3> 
+                    </div>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default sidebar-btn btn-grad" ng-click="directtohome()">
+                            <strong>マイページトップ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoprofile()">
+                            <strong>プロフィール管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomemberinfo()">
+                            <strong>会員情報管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtojob()">
+                            <strong>仕事管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtomessage()">
+                            <strong>メッセージ</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                            <strong>保存リスト</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoauthentication()">
+                            <strong>各種認証設定</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtopayment()">
+                            <strong>支払い管理</strong>
+                        </button></p>
+                    <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn" ng-click="directtoaffiliate()">
+                            <strong>アフィリエイト管理</strong>
+                        </button></p>
+                </div>
+                <div style="padding-right: 30px" class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <ul class="nav nav-tabs tab-1"> 
+                                    <li class="tab-style-grey active">
+                                        <a href="#tab1" data-toggle="tab"> <b> <u>リンク作成</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab2" data-toggle="tab"> <b> <u>ブログパーツ</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab3" data-toggle="tab"><b> <u>成果統計</u></b></a>
+                                    </li>                                     
+                                    <li class="tab-style-grey">
+                                        <a href="#tab4" data-toggle="tab"> <b> <u>登録情報</u></b></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 20px;margin-bottom: 20px">
+                        <table class="table table-bordered" style="margin-bottom: 10px; border: 1px solid #d6d6d6;"> 
+                            <tbody> 
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>区分</h5></td> 
+                                    <td><h5 class="col-sm-3"><label class="control-label">
+                                                <input type="radio" name="group" value="option1" checked="">        バナー        
+                                            </label></h5><h5 class="col-sm-3"><label class="control-label">
+                                                <input type="radio" name="group" value="option1" checked="">        テキスト        
+                                            </label></h5><h5 class="col-sm-3"><label class="control-label">
+                                                <input type="radio" name="group" value="option1" checked="">        自由テキスト      
+                                            </label></h5></td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>リンクの内容</h5></td> 
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Placeholder text">
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>リンク先のURL</h5></td> 
+                                    <td>
+                                        <input type="text" class="form-control" placeholder="Placeholder text">
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>HTMLコード</h5></td> 
+                                    <td style="font-size: 12px">
+                                        <textarea class="form-control" rows="3"></textarea>                                         
+                                    </td>
+                                </tr>
+                                <tr> 
+                                    <td class="div-style-blue2" style="font-size: 12px;width: 20%"><h5>プレビュー</h5></td> 
+                                    <td style="font-size: 12px">
+                                        <textarea class="form-control" rows="3"></textarea>                                         
+                                    </td>
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row text-center">
+                        <button type="button" class="btn btn-style-shadow-green btn-success" style="margin-top: 20px;margin-bottom: 20px">コード作成</button>
+                    </div>                     
+                </div>
+            </div>
+        </div>

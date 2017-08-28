@@ -1,0 +1,138 @@
+<div class="container">
+            <div class="row">
+                <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+                <img src="./assets/img/top_bar_2.png" />
+            </div>
+            <div class="row">
+                <h1><strong>事業者検索</strong></h1>
+            </div>
+            <div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+                <p style="font-size: 14px;"><b><span style="font-size: 15px;">この施策を必要としている事業者の検索が可能です。是非申請代行のオファーを出しましょう</span></b></p>
+            </div>
+            <div class="row div-style-grey" style="margin-top: 0px;">
+                <div class="col-sm-6">
+                    <h5 style="font-size: 13px">○○/○○</h5> 
+                </div>
+                <div class="col-sm-6">
+                    <h5 class="col-sm-3" style="font-size: 13px">並び替え：</h5>
+                    <div class="col-sm-3">
+                        <select class="form-control"> 
+                            <option value="1">1</option>                             
+                            <option value="2">2</option>                             
+                            <option value="3">3</option>                             
+                        </select>
+                    </div>
+                    <h5 class="col-sm-3" style="font-size: 13px">表示件数：</h5>
+                    <div class="col-sm-3">
+                        <select class="form-control"> 
+                            <option value="1">1</option>                             
+                            <option value="2">2</option>                             
+                            <option value="3">3</option>                             
+                        </select>
+                    </div>                     
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <div class="text-center col-sm-2" style="padding-left: 0px;padding-top:10px;padding-right: 25px">
+                        <div style="margin-bottom: 20px;text-align: left">
+                            <h3 class="h1-left-border"> <b style="color: #337ab7;">リスト一覧</b></h3>
+                        </div>
+                        <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                <strong>提案を検討リスト</strong>
+                            </button></p>
+                        <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                <strong>興味リスト</strong>
+                            </button></p>
+                        <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                <strong>非表示リスト</strong>
+                            </button></p>
+                        <div style="margin-bottom: 20px;text-align: left">
+                            <h3 class="h1-left-border"> <b style="color: #337ab7;">検索設定条件</b></h3>
+                        </div>
+                        <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                <strong>プロフィールの設定</strong>
+                            </button></p>
+                        <p style="font-size: 14px"><button type="button" class="btn btn-default btn-grad sidebar-btn">
+                                <strong>プロフィールの設定</strong>
+                            </button></p>
+                    </div>
+                    <div class="row col-sm-10">
+                        <table class="table"> 
+                            <tbody>
+                                <tr> 
+                                    <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="row col-sm-6">
+                                                <!--<input class="control-label" ng-model="ppp_D4selectedFreelancer" type="checkbox" value="" style="margin-left:15px;">-->
+                                                <button style="width:170px;margin-left:15px" class="btn btn-success btn-style-shadow-green" type="button" ng-click="p_gotoD5Screen()">まとめて提案をする</button>
+                                            </div>
+                                        </div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row col-sm-10">
+                        <table class="table">
+                            <tbody>
+                                <tr ng-repeat="ppp_clientinfo in ppp_clientinfos"> 
+                                    <td style="border-top: 0px; border-bottom: 1px solid #dddddd">
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="col-sm-3" style="margin-top: 20px;padding: 0px 0px;">
+                                                    <input class="control-label" type="checkbox" id="{{ppp_clientinfo.id}}" ng-model="ppp_D4selectedFreelancer" ng-change= "changeSelectedId(ppp_clientinfo.id)" ng-disabled="checked==limit && !ppp_D4selectedFreelancer">
+                                                    <img src={{ppp_clientinfo.image}} style="width: 100px;margin-left:10%">
+                                                </div>
+                                                <div class="col-sm-9">
+                                                    <h3 class="text-primary"> <b>{{ppp_clientinfo.displayname}}</b></h3>
+                                                    <h4 class="text-primary"> <b>登録期間</b>：○○○/                                        <b>募集時期</b>：○○○/                                        <b>金額</b>：○○○</h4>
+					
+													<h4 class="text-primary" style="display:flex"> <b>評価</b>：
+														<div  ng-mouseover="hoverIn(ppp_clientinfo.id)" ng-mouseleave="hoverOut(ppp_clientinfo.id)">
+															<ng-rate-it ng-model="p_star" read-only="true" step="0.01">
+															</ng-rate-it>
+															<span ng-show="hoverEdit[ppp_clientinfo.id]" style="position:absolute; left: 150px; background-color: rgb(160,150,60);">
+																 <h4 class="text-primary"> <b>{{p_star}}</b></h4>
+															</span>
+														</div>
+													</h4>
+													<h4 class="text-primary"> <b>実績</b>：○○<b>件</b></h4>
+                                                </div>
+                                                <div class="row" style="margin-left: 30px;margin-bottom: 20px">
+                                                    <button type="button" class="btn-primary" style="width:100px;    margin-left: 3px;">保存する</button>
+                                                </div>
+                                            </div>
+											<div class="col-sm-1" style="margin-top: 100px">
+												<div style="background-color:black" ng-if="ppp_clientinfo.is_collect_flag == '募集中'">
+													<h4 class="text-primary" style = "font-size: 12px; padding: 5px; color: white"> <b>実績件</b></h4>
+												</div>
+											</div>
+                                            <div class="col-sm-3" style="padding-right: 10px"> 
+                                                <div class="div-style-yellow text-center" style="float: right;">
+													<button style="width:100%;margin-top : 0px;margin-bottom:5px;" class="btn btn-success btn-style-shadow-green" type="button">非表示</button>
+													<div ng-if = "ppp_clientinfo.final_request_date != 'unknown'" >
+														<p>最終提案日　：　{{ppp_clientinfo.final_request_date}}</p>
+														<p>提案回数　：　{{ppp_clientinfo.final_request_content}}</p>
+														<p>募集状況　：　○○○○</p>
+													</div>
+                                                </div>                                                 
+                                            </div>
+                                        </div>
+                                    </td>                                     
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        
+                        <div class="text-center">
+							<div class="row">
+								<ul uib-pagination total-items="D4pagination.totalitem" max-size="3" ng-model="D4pagination.current_page" previous-text="前へ" next-text="次へ" first-text="最初" last-text="最後" direction-links="false" boundary-links="true" items-per-page="D4pagination.itemperpage" class="pagination-sm" boundary-link-numbers="true" rotate="true" ng-change="D4paginationchange()"></ul>
+							</div>
+							<div class="row" style="padding-right: 10px"> 
+								<button type="button" class="btn btn-success  btn-style-shadow-green" ng-click="direct_set_balance()">費用を設定する</button>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>

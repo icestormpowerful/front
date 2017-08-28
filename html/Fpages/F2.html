@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <img src="./assets/img/top_bar_1.png" style="z-index: 0" />
+        <img src="./assets/img/top_bar_2.png" />
+    </div>
+    <div class="row">
+        <h1><strong>助成金・補助金自動マッチング</strong></h1>
+        <p style="font-size: 14px;margin-top: 20px;margin-bottom: 40px"><b>プロフィールの設定に対して、マッチングしている助成金・補助金が表示されています。直接、士業に依頼することも可能です。</b></p>
+        <div style="    border-bottom: 1px solid #ddd;">
+            <ul class="nav nav-tabs tab-1">
+                <li class="tab-style-grey active">
+                    <a href="#tab1" data-toggle="tab"> <b> <u>施策詳細</u></b></a>
+                </li>
+                <li class="tab-style-grey">
+                    <a href="#tab2" data-toggle="tab"> <b> <u>士業詳細</u></b></a>
+                </li>
+            </ul>
+        </div>
+        <p class="text-primary" style="margin-top: 20px;">{{F1displaysubsidylist[F2subsidy_index].name}}</p>
+        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+            <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(F1displaysubsidylist[F2subsidy_index].id,0)">提案を検討</button>
+            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(F1displaysubsidylist[F2subsidy_index].id,1)">興味あり</button>
+            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(F1displaysubsidylist[F2subsidy_index].id,2)">非表示</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8" style="padding-right: 30px">
+
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>登録機関</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].register_insti_detail}}</p>
+            </div>
+
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>目的</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].target}}</p>
+            </div>
+
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>対象者の詳細</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].info}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>支援内容・支援規模</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].support_content}}<br/>
+                    {{F1displaysubsidylist[F2subsidy_index].support_scale}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>募集期間</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].subscript_duration}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>対象期間</b></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].object_duration}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border text-primary" style="border-left: 5px solid rgb(240, 164, 17);"><b>pdfデータ</b></p>
+                <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinF2screen(F1displaysubsidylist[F2subsidy_index].register_pdf)">
+                    <a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+                <p style="margin-top: 10px">{{F1displaysubsidylist[F2subsidy_index].target}}</p>
+            </div>
+
+            <div class="row text-center">
+                <button type="button" class="btn-primary btn btn-style-shadow-green btn-success" style="margin-right:10px;width:150px;">確認する</button>
+            </div>
+        </div>
+        <div class="col-sm-4" style="padding-left: 5px;padding-right: 0px">
+            <div class="col-sm-12 div-style-white">
+                <label>
+                    <input class="control-label" type="checkbox" ng-model="dahangjaCheckFlag.value" ng-change="F2DahangjatoggleAll()"> チェックした事業者に提案をする
+                </label>
+                <button style="padding: 0 0;float:right;margin: 0 0;width: 100px;" class="btn-primary btn btn-style-shadow-green btn-success" type="button" ng-click="onClickF7()">保存する</button>
+            </div>
+            <table class="table table-bordered table-hover" style="margin-bottom: 20px" ng-repeat="user_data in F2UsersList">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;height:50px;text-align:center;vertical-align: middle;  ">
+                            <input class="control-label" type="checkbox" ng-model="dahangjacheckmodel"
+                                   ng-change="F2Dahangjatoggle(user_data.id)" ng-checked="dahangjaCheckFlag.value"  >
+                        </th>
+                        <th style="width: 30%;text-align:center;">
+                            <img src={{displayimageurl+user_data.image}} style="width: 100%" class="img-thumbnail">
+                            <button type="button" class="btn-primary" style="width: 100%">保存する</button>
+                        </th>
+                        <th style="width: 65%;text-align:center;">
+                            <div ng-click="onClickF3(user_data.id)">
+                            <p style="font-size: 20px;">
+                                士業名：{{user_data.username}}<br>
+                                実績：{{user_data.result}}<br>
+                                評価：{{user_data.evaluate}}件</p>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>

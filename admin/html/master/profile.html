@@ -1,0 +1,70 @@
+<div class="content">
+	<div class="inner-content">
+		<div class="inner-container">
+			<div class="row">
+				<div class="col-md-3 pull-left">
+					<div class="sidebar-left">
+						<ul>
+							<li class="active"><a href="#!/master/profile">システム設定</a></li>
+							<li><a href="#!/master/employeeedit">スタッフ登録</a></li>
+							<li><a href="#!/master/loginhistory">ログイン履歴</a></li>
+							<li><a href="#!/master/edithistory">編集履歴</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-9 pull-right">
+					<div class="site-content">
+						<label style="font-size:22px;">ログイン設定</label>
+					</div>
+					<div class="site-content">
+						<div class="section-1">
+							<div class={{messagestyleclass}} style={{messageshowstate}}>
+								<span>{{messagestring}}</span>
+							</div>
+						</div>
+						<div class="section-2 col-md-12">
+							<div class="col-md-1">							   
+							</div>
+							<div class="col-md-11">
+								<form class="form-horizontal">
+									<div class="form-group" style="margin-top:30px;">
+								        <p class="col-sm-4">現在の管理者ID</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="text" placeholder="現在の管理者ID" ng-model="beforeid">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">現在の管理者パスワード</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="password" placeholder="現在の管理者パスワード" ng-model="beforepassword">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">新しい管理者ID</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="text" placeholder="8文字以上" ng-model="nextid">
+								        </div>
+								    </div>
+								    <div class="form-group" style="margin-top:20px;">
+								        <p class="col-sm-4">新しい管理者パスワード</p>
+								        <div class="col-sm-5">
+								          <input class="form-control" id="focusedInput" type="password" placeholder="8文字以上" ng-model="nextpassword">
+								          <p style="font-size:12px;margin-left:10px;">確認のため再入力</p>
+								          <input class="form-control" id="focusedInput" type="password" ng-model="nextpasswordverify">
+								        </div>
+								    </div>
+								</form>
+							</div>
+						</div>
+
+				        <div style="margin-top:50px;">
+				          <input type="submit" name="submit" class="submit-blue-btn" value="設定変更" ng-click="submitChange()">
+				        </div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
