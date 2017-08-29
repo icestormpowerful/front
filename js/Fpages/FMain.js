@@ -1,12 +1,12 @@
 app.controller("FMainController", ['$scope','$rootScope','$http','$location',function($scope,$rootScope,$http,$location) {
     $scope.inlcudehtmlpath="html/Fpages/F16.html";
     $scope.BusinessType=[
-                    "100万円以下",
-                    "100万〜500万円以下",
-                    "500万〜1000円万以下",
-                    "1000万〜5000万以下",
-                    "5000万〜1億円以下",
-                    "1億円以上"];
+        "100万円以下",
+        "100万〜500万円以下",
+        "500万〜1000円万以下",
+        "1000万〜5000万以下",
+        "5000万〜1億円以下",
+        "1億円以上"];
     // var BusinessStringByType = function(type)
     // {
     //     return BusinessType[type];
@@ -209,9 +209,9 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
         }).then(function successCallback(response) {
             console.log(response.data.result);
             /*
-            {"result":[시책object배렬],
-                "total_item_number":"총검색개수"}
-                */
+             {"result":[시책object배렬],
+             "total_item_number":"총검색개수"}
+             */
             $scope.F1displaysubsidylist=response.data.result;
             $scope.F1pagination.totalitem=response.data.total_item_number;
             $scope.F1pagination.current_page=1;
@@ -336,7 +336,7 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
             var idx = $scope.F2selectedDahangjaString.findIndex(x => x.id==dahangjaID);
             if (idx > -1) {
                 if( $scope.dahangjaCheckFlag.value  == false) {
-                   $scope.F2selectedDahangjaString.splice(idx, 1);
+                    $scope.F2selectedDahangjaString.splice(idx, 1);
                 }
             }
             else {
@@ -358,6 +358,19 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
             $scope.F2selectedDahangjaString.push({id:dahangjaID});
         }
     };
+    $scope.F2DahangjaFollow = function(dahangjaID){
+        //{"user_id":"현재 로그인한 사용자 id", "follow_id":"follow할 id"}
+        var data = JSON.stringify({user_id:profile.loginid,follow_id:dahangjaID});
+        $http({
+            method: 'post',
+            url: http_url + "api/follow",
+            data:data,
+            headers: {'Content-Type': 'application/json'}
+        }).then(function successCallback(response) {
+            alert("Follow Success!");
+        });
+    }
+
 
 
 
@@ -476,16 +489,16 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
         $scope.F5GetRespondTask();
     }
     var BusinessType=["製造業",
-            "サービス業",
-            "卸売・小売業",
-            "情報通信業",
-            "農林漁業",
-            "運輸業",
-            "建設業",
-            "不動産業",
-            "医療・福祉",
-            "その他",
-        ];
+        "サービス業",
+        "卸売・小売業",
+        "情報通信業",
+        "農林漁業",
+        "運輸業",
+        "建設業",
+        "不動産業",
+        "医療・福祉",
+        "その他",
+    ];
     $scope.F5GetRespondTask=function(){
         console.log("--------F5GetRespondTask--------");
         // api/fscreen/f5/{user_id}
@@ -560,6 +573,13 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
 
         });
     }
+
+
+
+
+
+
+
 
 //F7
     $scope.onClickF7 = function()    {
@@ -650,6 +670,14 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
         }
     }
 
+
+
+
+
+
+
+
+
     //F12
     $scope.F12displaysubsidylist=[];
     $scope.F12pagination = {
@@ -716,16 +744,31 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
             $scope.F12pagination.totalitem=response.data.total_item_number;
         });
     };
+
+
+
+
     //F13
     $scope.F13view_subsidy_detail = function (subsidyindex) {
         $scope.F12subsidy_index=subsidyindex;
         $scope.inlcudehtmlpath="html/Fpages/F13.html";
     };
+
+
+
+
+
     //F14
     $scope.F14view_subsidy_detail = function () {
         //$scope.F12subsidy_index=subsidyindex;
         $scope.inlcudehtmlpath="html/Fpages/F14.html";
     };
+
+
+
+
+
+
     //F15
     $scope.onClickF15 = function () {
         $scope.inlcudehtmlpath="html/Fpages/F15.html";
@@ -735,11 +778,11 @@ app.controller("FMainController", ['$scope','$rootScope','$http','$location',fun
     $scope.F15Report = function () {
         console.log("-------F15_------");
         /*
-        {"user_id":'사용자id",
-            "report_id":"위반한 사용자 id",
-            "report_option":항목(0또는1또는2또는3),
-            "message":"메쎄지"}
-            */
+         {"user_id":'사용자id",
+         "report_id":"위반한 사용자 id",
+         "report_option":항목(0또는1또는2또는3),
+         "message":"메쎄지"}
+         */
         var data = JSON.stringify({user_id:profile.loginid,
             report_id:0,
             report_option:$scope.F15_report_option,
