@@ -178,7 +178,7 @@ app.controller("ESelectController", ['$scope','$rootScope','$http','$location','
 	};
 	$scope.viewdetailsubsidy = function(index) {
     	$scope.displaydetailindex=index;
-        $scope.inlcudehtmlpath="html/Gpages/Gsubsidydetail.html";
+        $scope.inlcudehtmlpath="html/Epages/E3.html";
     };
     $scope.initpdfarrayinC3screen = function(pdfstring) {
         var array=JSON.parse(pdfstring);

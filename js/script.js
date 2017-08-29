@@ -625,4 +625,22 @@ app.service('KPRGsubsidySearchService', function() {
 
 });
 
+app.service('KPREsubsidySelectService', function() {
+  var policyid=-1;
+
+  var setSubsidyId = function(id) {
+      policyid=id;
+  };
+
+  var getSubsidyId = function(){
+      return policyid;
+  };
+
+  return {
+    setSubsidyId: setSubsidyId,
+    getSubsidyId: getSubsidyId
+  };
+
+});
+
 var http_url="http://192.168.1.123/samurai/public/";
