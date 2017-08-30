@@ -33,4 +33,7 @@ app.controller("B0HomeController", ['$scope','$location','$rootScope',function($
   $scope.clickgoBpart2 = function() {
     $location.path("/agency/Bpart2" );
   }
+  $scope.clickgoDpart = function() {
+    $location.path("/agency/Dpart" );
+  }
 }]);

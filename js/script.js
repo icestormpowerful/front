@@ -195,29 +195,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl : "html/Epages/ESelect.html",
         controller : "ESelectController"
     })
-    .when("/agency/E3", {
-        templateUrl : "html/Epages/E3.html",
-        controller : "E3Controller"
+    .when("/agency/Eregister", {
+        templateUrl : "html/Epages/ERegister.html",
+        controller : "ERegisterController"
     })
-    .when("/agency/E4", {
-        templateUrl : "html/Epages/E4.html",
-        controller : "E4Controller"
-    })
-    .when("/agency/E5", {
-        templateUrl : "html/Epages/E5.html",
-        controller : "E5Controller"
-    })
-    .when("/agency/E6", {
-        templateUrl : "html/Epages/E6.html",
-        controller : "E6Controller"
-    })
-    .when("/agency/E7", {
-        templateUrl : "html/Epages/E7.html",
-        controller : "E7Controller"
-    })
-    .when("/agency/E8", {
-        templateUrl : "html/Epages/E8.html",
-        controller : "E8Controller"
+    .when("/agency/Ecomplete", {
+        templateUrl : "html/Epages/Ecomplete.html",
+        controller : "ECompleteController"
     })
 
     // fpages

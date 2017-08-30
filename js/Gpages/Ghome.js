@@ -70,7 +70,6 @@ app.controller("GHomeController", ['$scope','$rootScope','$http','$location','KP
 	        	$scope.downeddisplayregionstring=response.data.region;
 	        	$scope.downeddisplayministrystring=response.data.ministry;
 	        	$scope.downeddisplaycompanystring=response.data.register_insti;
-	        	$scope.inlcudehtmlpath="html/Kpages/agencyprofile/availabletask.html";
 	        });
 	}
 	init();

@@ -1,0 +1,201 @@
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row" style="margin-bottom:20px;">
+            <p style="font-size: 14px; border-bottom: 1px solid #dddddd;"><b><span style="font-size: 15px;color: #337ab7;">STEP2</span>依頼内容。</b></p>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:30px">
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>依頼タイトル &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">{{btrequest.title}}</p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>目的 &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">{{btrequest.purpose}}</p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>重視する点 &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px"><span ng-repeat="importantitem in btrequest.important">●{{displayimportantstring[importantitem]}}&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</span></p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>補足説明 &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">{{btrequest.comment}}</p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>添付ファイル &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px"><span ng-repeat="filetime in getfiledisplayarray()">●{{filetime}}<br/></span></p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>募集の締め切り &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">{{getenddatedisplaystring(btrequest.enddate)}}</p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>依頼業務 &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">
+                    	<span ng-if="!btrequest.job_business">設定しない<br/></span>
+                    	<span ng-if="btrequest.job_business&&btrequest.document_business_flag">書類作成&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;{{btrequest.document_business_balance}}&nbsp;&nbsp;円以下希望<br/></span>
+                    	<span ng-if="btrequest.job_business&&btrequest.request_business_flag">申請代行&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;{{displayrequeststring[btrequest.request_business_balance-1]}}<br/></span>
+                    	<span ng-if="btrequest.job_business&&btrequest.other_business_flag">その他&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;{{btrequest.other_business_balance}}&nbsp;&nbsp;円以下希望<br/></span>
+                    </p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+    <div class="col-sm-12" style="border-bottom: 1px solid #ddd;margin-top:10px;margin-bottom:10px;">
+        <div>
+            <div class="col-sm-2" style="padding:0 0;">
+                <h5 class="text-primary"><b>着手金 &nbsp; &nbsp;&nbsp;</b></h5>
+            </div>
+            <div class="col-sm-10">
+                <div class="row">
+                    <p style="font-size: 14px">
+                    	<span ng-if="btrequest.stbalance==1">設定しない<br/></span>
+                    	<span ng-if="btrequest.stbalance==2">着手なし<br/></span>
+                    	<span ng-if="btrequest.stbalance==3">{{btrequest.startbalance}}円以下希望<br/></span>
+                    </p>
+                </div>                                     
+            </div>
+        </div>                             
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11"> 
+        <div class="row" style="margin-top:40px;margin-bottom:20px;"> 
+            <p style="font-size: 14px; border-bottom: 1px solid #dddddd;"><b><span style="font-size: 15px;color: #337ab7;">OPTION</span>        優良オプションを設定します。</b></p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-11">
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(0)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">完全非公開オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+10,800円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼を非公開にして提案を募集することができます。<br/>
+                    募集中は士業とクライアント（法人）しか依頼を閲覧することができず、募集終了後には当選ユーザー及び依頼したクライアントのみ閲覧することができます。<br/>
+                    ※士業が依頼詳細ページを閲覧するには本人確認と機密保持確認が必須となります。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(1)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">非公開オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+5,400円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼を非公開にして提案を募集することができます。（非公開オプションをつけていても、士業にログインすると、表示されてしまいます。予めご了承ください。）</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(2)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">急募オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+7,500円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    仕事依頼が急募であることを表示し、どの依頼よりも最優先で上位表示します。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(3)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">注目オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+3,240円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    仕事依頼をより多くの士業に見つけてもらえるように表示されます。多くの提案を集めることができます。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(4)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">マイページ表示オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+54,000円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    士業のマイページに、お客様（法人）の依頼ページリンクが表示されます。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(5)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">認定士業への一斉通知オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+16,200円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼内容を認定士業にメールで告知・宣伝ができます。</p>
+            </div>
+        </div>
+        <div class="row div-style-white" style="padding:20px 15px 20px 15px;" ng-if="payoptionexist(6)">
+            <div style="margin-top:10px;margin-bottom:20px;">
+                <span style="color: #337ab7;font-size:18px;font-weight:600;">士業100人への一斉通知オプション</span>
+                <button type="button" class="btn btn-warning" style="float:right;">+5,400円</button>
+            </div>
+            <div>
+                <p style="font-size: 14px;">
+                    依頼内容を実績ある士業100名にメールで告知・宣伝ができます。</p>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-bottom: 20px; ">
+            <button type="button" class="btn btn-success btn-style-shadow-green" style="margin-right :10px;width:20%" ng-click="clickregistercontent()">登録する</button>
+            <button style="width:20%" class="btn btn-default btn-style-shadow-grey" type="button" ng-click="backtoeditcontent()">戻る</button>
+        </div>
+    </div>
+</div>

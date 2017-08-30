@@ -1,0 +1,67 @@
+<div class="container">
+	<div class="row">
+    <label class="container-header-pagetext">
+        <strong style="color:#fff">TOPページ</strong>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申請代行募集の登録</label>
+    </div>
+    <div class="row">
+        <h1><strong>申請代行募集の登録</strong></h1>
+        <p style="font-size: 14px;margin-top: 20px;"><b>申請代行可能な助成金・補助金の登録ができます。
+					登録しておくことで、企業が助成金・補助金を検索した際にあなたのプロフィールが助成金・補助金の横に出てきて、申請代行依頼が届きます。</b></p>
+    </div>
+    <div class="row" style="margin-top: 20px;margin-bottom: 20px;border-bottom: 1px solid #dddddd;">
+        <p style="font-size: 14px;"><b><span style="font-size: 15px;color: #337ab7;">STEP1</span>   申請代行募集施策情報の選択</b></p>
+    </div>
+    <div class="row">
+        <p style="color:rgb(44,130,218);font-size:30px;">{{displaydetailsubsidy.name}}</p>
+        <div class="row" style="margin-left: 0px;margin-bottom: 20px">
+            <button type="button" class="btn btn-warning" style="width: 120px" ng-click="click_subsidy_put(displaydetailsubsidy.id,0)">提案を検討</button>
+            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(displaydetailsubsidy.id,1)">興味あり</button>
+            <button type="button" class="btn btn-default btn-style-grey" style="width: 120px" ng-click="click_subsidy_put(displaydetailsubsidy.id,2)">非表示</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-9" style="padding-right: 30px">
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>登録機関</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.register_insti_detail}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象地域</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.region}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>更新日</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.update_date}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>施策名</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.name_serve}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>目的</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.target}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象者の詳細</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.info}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>支援内容・支援規模</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.support_content}}<br/>{{displaydetailsubsidy.support_scale}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>募集期間</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.subscript_duration}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>対象期間</b></p>
+                <p style="margin-top: 10px">{{displaydetailsubsidy.object_duration}}</p>
+            </div>
+            <div class="row" style="margin-top:10px;margin-bottom:10px">
+                <p class="h1-left-border" style="border-left: 5px solid rgb(240, 164, 17);color: #006abc;"><b>pdfデータ</b></p>
+                <p style="margin-top: 10px" ng-init="pdfarray = initpdfarrayinC3screen(displaydetailsubsidy.register_pdf)"><a ng-repeat="pdfitem in pdfarray" ng-click="clickdownloadpdf(pdfitem[1],pdfitem[0])">{{pdfitem[0]}}<br/></a></p>
+            </div>
+        </div>
+    </div>
+    <ng-include src="inlcudehtmlpath"></ng-include>
+</div>

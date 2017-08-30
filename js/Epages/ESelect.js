@@ -1,4 +1,4 @@
-app.controller("ESelectController", ['$scope','$rootScope','$http','$location','$window','$mdDialog',function($scope,$rootScope,$http,$location,$window,$mdDialog) {
+app.controller("ESelectController", ['$scope','$rootScope','$http','$location','$window','$mdDialog','KPREsubsidySelectService',function($scope,$rootScope,$http,$location,$window,$mdDialog,KPREsubsidySelectService) {
 	$rootScope.header_path="html/header1.html";
 	$scope.inlcudehtmlpath="html/Epages/E1.html";
 	$scope.displayimageurl=http_url;
@@ -196,11 +196,9 @@ app.controller("ESelectController", ['$scope','$rootScope','$http','$location','
     $scope.backtoListscreen = function() {
         $scope.inlcudehtmlpath="html/Epages/E2.html";
     };
-    $scope.viewdetailsubsidy = function(index) {
-    	$scope.displaydetailindex=index;
-        $scope.inlcudehtmlpath="html/Epages/E3.html";
-    };
     $scope.selectsubsidy = function(id) {
+      KPREsubsidySelectService.setSubsidyId(id);
+      $location.path("/agency/Eregister");
     };
     //useraddsubsidypart
     $scope.useraddsubsidy = {
@@ -360,15 +358,15 @@ app.controller("ESelectController", ['$scope','$rootScope','$http','$location','
           support_scale:$scope.useraddsubsidy.supportscale,subscript_duration:$scope.useraddsubsidy.recruitment,
           object_duration:$scope.useraddsubsidy.period,adopt_result:$scope.useraddsubsidy.adoption,inquiry:$scope.useraddsubsidy.contact
         });
-        // $http({
-        //   method: 'post',
-        //   url: http_url + "api/job/policy_with_register",
-        //   data:data,
-        //   headers: {'Content-Type': 'application/json'}
-        //   }).then(function successCallback(response) {
-        //     uploadpdffiles(response.data.policy_id);
-        //     $scope.inlcudehtmlpath="html/Cpages/C9.html";
-        //   });
+        $http({
+          method: 'post',
+          url: http_url + "api/job/policy_with_register",
+          data:data,
+          headers: {'Content-Type': 'application/json'}
+          }).then(function successCallback(response) {
+            console.log(response.data);
+            uploadpdffiles(response.data.policy_id);
+          });
       };
       var uploadpdffiles = function (subsidyid) {
         var fd = new FormData();
@@ -383,8 +381,13 @@ app.controller("ESelectController", ['$scope','$rootScope','$http','$location','
         if(count>0){
           
           $http.post(http_url + "api/uploadfile/"+subsidyid+"/"+count, fd, config).then(function successCallback(response) {
-                  alert("success");
+                  KPREsubsidySelectService.setSubsidyId(subsidyid);
+                  $location.path("/agency/Eregister");
                 });
+        }
+        else{
+          KPREsubsidySelectService.setSubsidyId(subsidyid);
+          $location.path("/agency/Eregister");
         }
       }
 }]);
